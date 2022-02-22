@@ -4,10 +4,10 @@
 //For this we need to downlode the esp8266 2.3.0 library
 
 int ledpin = D4; //defining the OUTPUT pin for LED (D4)
-int ledpinred = D5;
-int ledpingreen = D6;
-int ledpinblue  = D7;
-int ledpinyellow = D8;
+int ledpinred = D5;//defining the OUTPUT pin for LED (D5)
+int ledpingreen = D6;//defining the OUTPUT pin for LED (D6)
+int ledpinblue  = D7;//defining the OUTPUT pin for LED (D7)
+int ledpinyellow = D8;//defining the OUTPUT pin for LED (D8)
 
 // Set these to run example.
 #define FIREBASE_HOST "smart-bulb-app-default-rtdb.firebaseio.com"
@@ -16,11 +16,11 @@ int ledpinyellow = D8;
 #define WIFI_PASSWORD "9743DFF1"
 
 void setup() {
-  pinMode(ledpin,OUTPUT);
-  pinMode(ledpinyellow,OUTPUT);
-  pinMode(ledpinred,OUTPUT);
-  pinMode(ledpingreen,OUTPUT);
-  pinMode(ledpinblue,OUTPUT);
+  pinMode(ledpin,OUTPUT); // Defining Pinmode for ledpin(D4)
+  pinMode(ledpinyellow,OUTPUT);// Defining Pinmode for ledpinyellow(D8)
+  pinMode(ledpinred,OUTPUT);// Defining Pinmode for ledpinred(D5)
+  pinMode(ledpingreen,OUTPUT);// Defining Pinmode for ledpingreen(D6)
+  pinMode(ledpinblue,OUTPUT);// Defining Pinmode for ledpinblue(D7)
 
 }
 
