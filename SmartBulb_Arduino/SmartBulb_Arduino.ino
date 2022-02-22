@@ -25,6 +25,25 @@ void setup() {
   pinMode(ledpingreen,OUTPUT);// Defining Pinmode for ledpingreen(D6)
   pinMode(ledpinblue,OUTPUT);// Defining Pinmode for ledpinblue(D7)
 
+  Serial.begin(9600);
+  delay(500);
+  WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
+  Serial.print("connecting");
+  while (WiFi.status() != WL_CONNECTED) {
+    Serial.print(".");
+    delay(500);
+  }
+  yield();
+  Serial.println();
+  Serial.print("connected: ");
+  Serial.println(WiFi.localIP());
+  digitalWrite(D8,HIGH);
+  delay(1000);
+  digitalWrite(D8,LOW);
+  
+  Firebase.begin(FIREBASE_HOST, FIREBASE_AUTH);
+}
+
 }
 
 
