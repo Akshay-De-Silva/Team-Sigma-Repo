@@ -15,6 +15,7 @@ int ledpinyellow = D8;//defining the OUTPUT pin for LED (D8)
 #define WIFI_SSID "Dialog 4G 266"
 #define WIFI_PASSWORD "9743DFF1"
 
+//Just for testing
 void setup() {
   pinMode(ledpin,OUTPUT); // Defining Pinmode for ledpin(D4)
   pinMode(ledpinyellow,OUTPUT);// Defining Pinmode for ledpinyellow(D8)
