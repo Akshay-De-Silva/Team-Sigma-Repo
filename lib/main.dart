@@ -85,7 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
             FlatButton(
-              child:Image.asset("images/power2.png",height: 50,    width: 50,),
+              child:Image.asset("images/power2.png",height: 50,    width: 50,),//Adding the Bulb image
              // child:Text("LedON"),
               //color: Colors.blue,
               onPressed: (){
