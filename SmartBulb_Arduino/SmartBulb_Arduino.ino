@@ -48,8 +48,17 @@ void setup() {
 
 
 //Testing
+String light = "";// assigning a String Variable named as light 
 void loop()
 {
+   light = Firebase.getString("Light/Switch");
+   Serial.println(light);
+   if (light == "ON")
+   {
+     digitalWrite(ledpin, HIGH);
+   
+
+   }
   
   
   }
