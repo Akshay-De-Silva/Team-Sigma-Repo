@@ -129,9 +129,103 @@ class _MyHomePageState extends State<MyHomePage> {
                     fontWeight:FontWeight.bold,
                     color: Colors.black,
                   ),)
-//test
 
               ),
+            ),
+            Column(
+              children: [
+                Container(
+                  child:Padding(
+                    padding:
+                    const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.max,
+                        children: const <Widget>[
+                          Text("Brightness",
+                            style: TextStyle(
+
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+
+                            ),)
+
+                        ]
+
+                    ),
+
+                  ),
+                ),
+                Container(
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          const Icon(
+                            Icons.lightbulb_outline,
+                            color: Colors.amber,
+                            size: 30,
+                          ),
+                          Expanded(
+                            child: Slider(
+                              value: _value.toDouble(),
+                              min: 0.0,
+                              max: 100.0,
+                              divisions: 10,
+                              activeColor: Colors.black,
+                              inactiveColor: Colors.white,
+                              label: '${_value.round()}',
+                              onChanged: (double newValue) {
+                                setState(
+                                      () {
+                                    _value = newValue.round();
+                                    if (light == true) {
+                                      if (_value == 0) {
+                                        dbR.child("Light").set({"Switch": "0"});
+                                      }
+                                      if (_value == 10) {
+                                        dbR.child("Light").set({"Switch": "10"});
+                                      }
+                                      if (_value == 20) {
+                                        dbR.child("Light").set({"Switch": "20"});
+                                      }
+                                      if (_value == 30) {
+                                        dbR.child("Light").set({"Switch": "30"});
+                                      }
+                                      if (_value == 40) {
+                                        dbR.child("Light").set({"Switch": "40"});
+                                      }
+                                      if (_value == 50) {
+                                        dbR.child("Light").set({"Switch": "50"});
+                                      }
+                                      if (_value == 60) {
+                                        dbR.child("Light").set({"Switch": "60"});
+                                      }
+                                      if (_value == 70) {
+                                        dbR.child("Light").set({"Switch": "70"});
+                                      }
+                                      if (_value == 80) {
+                                        dbR.child("Light").set({"Switch": "80"});
+                                      }
+                                      if (_value == 90) {
+                                        dbR.child("Light").set({"Switch": "90"});
+                                      }
+                                      if (_value == 100) {
+                                        dbR.child("Light").set({"Switch": "100"});
+                                      }
+                                    }
+                                  },
+                                );
+                              },
+                            ),
+                          ),
+                          const Icon(
+                            Icons.lightbulb,
+                            color: Colors.amber,
+                            size: 30,
+                          ),
+                        ])),
+              ],
             ),
 
 
