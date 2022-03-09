@@ -5,6 +5,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
 
+
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -14,15 +16,18 @@ Future<void> main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return  const MaterialApp(
+
       home: MyHomePage(),
       debugShowCheckedModeBanner: false,
     );
   }
 }
 
+
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
+
 
   // @override
   // State<MyHomePage> createState() => _MyHomePageState();
@@ -32,25 +37,25 @@ class MyHomePage extends StatefulWidget {
   }
 }
 
+
 class _MyHomePageState extends State<MyHomePage> {
-  String On = "OFF";
-  bool light = false;
+  String On="OFF";
+  bool light=false;
   int _value = 0;
-  final dbR = FirebaseDatabase.instance.reference();
+  final dbR= FirebaseDatabase.instance.reference();
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(
-          Icons.arrow_back,
-          color: Colors.black,
-        ),
-        title: const Text(
-          "Smart Bulb",
-          style: TextStyle(
-              color: Colors.black, fontWeight: FontWeight.bold, fontSize: 24),
-        ),
+        leading: Icon(Icons.arrow_back, color: Colors.black,),
+        title: const Text("Smart Bulb",
+        style: TextStyle(
+        color: Colors.black,
+        fontWeight: FontWeight.bold,
+        fontSize:24
+          ),),
         backgroundColor: Colors.blue,
         centerTitle: true,
       ),
@@ -59,36 +64,31 @@ class _MyHomePageState extends State<MyHomePage> {
         padding: const EdgeInsets.all(20),
         decoration: const BoxDecoration(
             image: DecorationImage(
-                image: AssetImage("images/background.jpg"), fit: BoxFit.cover)),
+                image: AssetImage("images/background.jpg"),
+                fit: BoxFit.cover)),
+
+
         child: Column(
-          // mainAxisAlignment: MainAxisAlignment.topCenter,
+         // mainAxisAlignment: MainAxisAlignment.topCenter,
           children: <Widget>[
+
             Container(
-              child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 30),
-                child: light
-                    ? Image.asset(
-                        'images/light-on.png',
-                        height: 200,
-                        width: 200,
-                      )
-                    : Image.asset(
-                        'images/light-off.png',
-                        height: 200,
-                        width: 200,
-                      ),
-                // child:Image.asset("images/light-on.png",height: 200,    width: 200,),
-              ),
+              child:Padding(
+                  padding:
+            const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 30),
+              child:light ? Image.asset( 'images/light-on.png',    height: 200,    width: 200, )
+                  : Image.asset( 'images/light-off.png',    height: 200,    width: 200, ),
+             // child:Image.asset("images/light-on.png",height: 200,    width: 200,),
+
             ),
+            ),
+
+
             FlatButton(
-              child: Image.asset(
-                "images/power2.png",
-                height: 50,
-                width: 50,
-              ), //Adding the Bulb image
-              // child:Text("LedON"),
+              child:Image.asset("images/power2.png",height: 50,    width: 50,),//Adding the Bulb image
+             // child:Text("LedON"),
               //color: Colors.blue,
-              onPressed: () {
+              onPressed: (){
                 if (light) {
                   //if ledstatus is true, then turn off the led
                   //if led is on, turn off
@@ -101,130 +101,239 @@ class _MyHomePageState extends State<MyHomePage> {
                   light = true;
                 }
                 setState(() {
-                  if (light == false) {
-                    On = "OFF";
-                    _value = 0;
-                  }
-                  if (light == true) {
-                    On = "ON";
+                  if(light==false)
+                    {
+                      On="OFF";
+                      _value=0;
+                    }
+                  if(light==true)
+                  {
+                     On="ON";
                   }
                 });
+
+
               },
             ),
+
             Container(
-              child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
-                  child: light
-                      ? const Text("BULB IS ON",
-                          style: TextStyle(
-                            fontSize: 14.0,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
-                          ))
-                      : const Text(
-                          "BULB IS OFF",
-                          style: TextStyle(
-                            fontSize: 14.0,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
-                          ),
-                        )),
+              child:Padding(
+                  padding:
+                  const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
+                  child:light ? const Text("BULB IS ON",style: TextStyle(
+                    fontSize:14.0,
+                    fontWeight:FontWeight.bold,
+                    color: Colors.black,
+                  )) : const Text("BULB IS OFF",style: TextStyle(
+                    fontSize:14.0,
+                    fontWeight:FontWeight.bold,
+                    color: Colors.black,
+                  ),)
+
+              ),
             ),
             Column(
               children: [
                 Container(
-                  child: Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
+                  child:Padding(
+                    padding:
+                    const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 10),
                     child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         mainAxisSize: MainAxisSize.max,
                         children: const <Widget>[
-                          Text(
-                            "Brightness",
+                          Text("Brightness",
                             style: TextStyle(
+
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
-                            ),
-                          )
-                        ]),
+
+                            ),)
+
+                        ]
+
+                    ),
+
                   ),
                 ),
                 Container(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      const Icon(
-                        Icons.lightbulb_outline,
-                        color: Colors.amber,
-                        size: 30,
-                      ),
-                      Expanded(
-                        child: Slider(
-                          value: _value.toDouble(),
-                          min: 0.0,
-                          max: 100.0,
-                          divisions: 10,
-                          activeColor: Colors.black,
-                          inactiveColor: Colors.white,
-                          label: '${_value.round()}',
-                          onChanged: (double newValue) {
-                            setState(
-                              () {
-                                _value = newValue.round();
-                                if (light == true) {
-                                  if (_value == 0) {
-                                    dbR.child("Light").set({"Switch": "0"});
-                                  }
-                                  if (_value == 10) {
-                                    dbR.child("Light").set({"Switch": "10"});
-                                  }
-                                  if (_value == 20) {
-                                    dbR.child("Light").set({"Switch": "20"});
-                                  }
-                                  if (_value == 30) {
-                                    dbR.child("Light").set({"Switch": "30"});
-                                  }
-                                  if (_value == 40) {
-                                    dbR.child("Light").set({"Switch": "40"});
-                                  }
-                                  if (_value == 50) {
-                                    dbR.child("Light").set({"Switch": "50"});
-                                  }
-                                  if (_value == 60) {
-                                    dbR.child("Light").set({"Switch": "60"});
-                                  }
-                                  if (_value == 70) {
-                                    dbR.child("Light").set({"Switch": "70"});
-                                  }
-                                  if (_value == 80) {
-                                    dbR.child("Light").set({"Switch": "80"});
-                                  }
-                                  if (_value == 90) {
-                                    dbR.child("Light").set({"Switch": "90"});
-                                  }
-                                  if (_value == 100) {
-                                    dbR.child("Light").set({"Switch": "100"});
-                                  }
-                                }
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          const Icon(
+                            Icons.lightbulb_outline,
+                            color: Colors.amber,
+                            size: 30,
+                          ),
+                          Expanded(
+                            child: Slider(
+                              value: _value.toDouble(),
+                              min: 0.0,
+                              max: 100.0,
+                              divisions: 10,
+                              activeColor: Colors.black,
+                              inactiveColor: Colors.white,
+                              label: '${_value.round()}',
+                              onChanged: (double newValue) {
+                                setState(
+                                      () {
+                                    _value = newValue.round();
+                                    if (light == true) {
+                                      if (_value == 0) {
+                                        dbR.child("Light").set({"Switch": "0"});
+                                      }
+                                      if (_value == 10) {
+                                        dbR.child("Light").set({"Switch": "10"});
+                                      }
+                                      if (_value == 20) {
+                                        dbR.child("Light").set({"Switch": "20"});
+                                      }
+                                      if (_value == 30) {
+                                        dbR.child("Light").set({"Switch": "30"});
+                                      }
+                                      if (_value == 40) {
+                                        dbR.child("Light").set({"Switch": "40"});
+                                      }
+                                      if (_value == 50) {
+                                        dbR.child("Light").set({"Switch": "50"});
+                                      }
+                                      if (_value == 60) {
+                                        dbR.child("Light").set({"Switch": "60"});
+                                      }
+                                      if (_value == 70) {
+                                        dbR.child("Light").set({"Switch": "70"});
+                                      }
+                                      if (_value == 80) {
+                                        dbR.child("Light").set({"Switch": "80"});
+                                      }
+                                      if (_value == 90) {
+                                        dbR.child("Light").set({"Switch": "90"});
+                                      }
+                                      if (_value == 100) {
+                                        dbR.child("Light").set({"Switch": "100"});
+                                      }
+                                    }
+                                  },
+                                );
                               },
-                            );
-                          },
-                        ),
-                      ),
-                      const Icon(
-                        Icons.lightbulb,
-                        color: Colors.amber,
-                        size: 30,
-                      ),
-                    ],
-                  ),
-                ),
+                            ),
+                          ),
+                          const Icon(
+                            Icons.lightbulb,
+                            color: Colors.amber,
+                            size: 30,
+                          ),
+                        ])),
               ],
             ),
+            Column(
+              children:[
+                Container(
+                    child: Padding(
+                        padding:
+                        const EdgeInsetsDirectional.fromSTEB(0, 0, 0,0),
+                        child:Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            mainAxisSize: MainAxisSize.max,
+                            children: const [
+
+                              Text("Color",
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+
+                                ),)
+
+                            ]
+
+
+                        )
+                    )
+
+                ),
+                Container(
+                  decoration: BoxDecoration(color: Colors.white54,borderRadius:  BorderRadius.circular(16.0),),
+                  height: 30,
+                  margin: const EdgeInsets.all(30.0),
+
+                  child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      mainAxisSize: MainAxisSize.max,
+                      children: <Widget> [
+                        FlatButton(
+                          child: const Text(""),
+                          color: Colors.red,
+                          height: 20,
+                          minWidth: 10,
+                          onPressed: () {
+                            if(light==true)
+                            {
+                              dbR.child("Light").set({"Switch": "red"});
+                            }
+
+                          },
+                        ),
+
+                        FlatButton(
+                          child: const Text(""),
+                          color: Colors.green,
+                          height: 20,
+                          minWidth: 10,
+                          onPressed: () {
+
+                            if(light==true)
+                            {
+                              dbR.child("Light").set({"Switch": "green"});
+                            }
+
+                          },
+                        ),
+
+                        FlatButton(
+                          child: const Text(""),
+                          color: Colors.blue,
+                          height: 20,
+                          minWidth: 10,
+                          onPressed: () {
+
+                            if(light==true)
+                            {
+                              dbR.child("Light").set({"Switch": "blue"});
+                            }
+
+                          },
+                        ),
+
+                        FlatButton(
+                          child: const Text(""),
+                          color: Colors.yellow,
+                          height: 20,
+                          minWidth: 10,
+                          onPressed: () {
+
+                            if(light==true)
+                            {
+                              dbR.child("Light").set({"Switch": "yellow"});
+                            }
+
+                          },
+                        ),
+
+                      ]
+
+                  ),
+
+                ),
+              ]
+            ),
+
+
+
           ],
         ),
       ),
+
     );
   }
 }
