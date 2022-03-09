@@ -55,10 +55,22 @@ void loop()
    Serial.println(light);
    if (light == "ON")
    {
-     digitalWrite(ledpin, HIGH);
+     digitalWrite(ledpin, HIGH);// Switching ON the main led bulb
    
-
    }
+
+   if (light == "OFF")
+  {
+    //Switching OFF the main and the other led bulbs
+    digitalWrite(ledpin, LOW);
+    analogWrite(ledpin, 0);
+    digitalWrite(ledpinred, LOW);
+    digitalWrite(ledpingreen, LOW);
+    digitalWrite(ledpinblue, LOW);
+    digitalWrite(ledpinyellow, LOW);
+    
+
+  }
   
   
   }
