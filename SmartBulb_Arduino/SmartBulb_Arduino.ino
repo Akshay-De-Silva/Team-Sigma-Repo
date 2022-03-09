@@ -44,7 +44,7 @@ void setup() {
   Firebase.begin(FIREBASE_HOST, FIREBASE_AUTH);
 }
 
-}
+
 
 
 //Testing
