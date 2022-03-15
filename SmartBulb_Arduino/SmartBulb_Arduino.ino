@@ -71,6 +71,63 @@ void loop()
     
 
   }
+
+ if(light=="0")
+  {
+    analogWrite(ledpin,0);
+ 
+   }
+   
+  if(light=="10")
+  {
+    analogWrite(ledpin,10);
+ 
+   }
+  if(light=="20")
+  {
+    analogWrite(ledpin,20);
+ 
+   }
+  if(light=="30")
+  {
+    analogWrite(ledpin,30);
+ 
+   }
+  if(light=="40")
+  {
+    analogWrite(ledpin,40);
+ 
+   }
+  if(light=="50")
+  {
+    analogWrite(ledpin,50);
+ 
+   }
+  if(light=="60")
+  {
+    analogWrite(ledpin,60);
+ 
+   }
+  if(light=="70")
+  {
+    analogWrite(ledpin,70);
+ 
+   }
+  if(light=="80")
+  {
+    analogWrite(ledpin,80);
+ 
+   }
+  if(light=="90")
+  {
+    analogWrite(ledpin,150);
+ 
+   }
+  if(light=="100")
+  {
+    analogWrite(ledpin,255);
+ 
+   }
   
   
   }
