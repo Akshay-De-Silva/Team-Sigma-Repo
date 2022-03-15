@@ -72,6 +72,8 @@ void loop()
 
   }
 
+  //Here we're controlling the voltage of the bulb in order to controll the brightness.
+
  if(light=="0")
   {
     analogWrite(ledpin,0);
@@ -128,6 +130,11 @@ void loop()
     analogWrite(ledpin,255);
  
    }
+
+   // End of controlling the voltage
+
+
+   //Colour change begins here.
 
      if (light == "red")
   {
