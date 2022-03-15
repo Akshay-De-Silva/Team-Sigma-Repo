@@ -128,6 +128,40 @@ void loop()
     analogWrite(ledpin,255);
  
    }
+
+     if (light == "red")
+  {
+    digitalWrite(ledpin, LOW);
+    digitalWrite(ledpingreen, LOW);
+    digitalWrite(ledpinblue, LOW);
+    digitalWrite(ledpinyellow, LOW);
+    digitalWrite(ledpinred, HIGH);
+
+  }
+  if (light == "green")
+  {
+    digitalWrite(ledpin, LOW);
+    digitalWrite(ledpinred, LOW);
+    digitalWrite(ledpinblue, LOW);
+    digitalWrite(ledpinyellow, LOW);
+    digitalWrite(ledpingreen, HIGH);
+
+  }
+  if (light == "blue")
+  {
+
+    digitalWrite(ledpin, LOW);
+    digitalWrite(ledpinred, LOW);
+    digitalWrite(ledpingreen, LOW);
+    digitalWrite(ledpinyellow, LOW);
+    digitalWrite(ledpinblue, HIGH);
+
+  }
+  if (light == "yellow")
+  {
+    // analogWrite(ledpinred,255);
+
+  }
   
   
   }
