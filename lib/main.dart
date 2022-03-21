@@ -304,17 +304,6 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
             IconButton(
-              icon: const Icon(Icons.home),
-              color: Colors.black,
-              iconSize: 30.0,
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => MyApp()),
-                );
-              },
-            ),
-            IconButton(
               icon: const Icon(Icons.schedule_outlined),
               color: Colors.black,
               iconSize: 30.0,
