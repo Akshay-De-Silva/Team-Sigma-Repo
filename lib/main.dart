@@ -326,13 +326,13 @@ class _MyHomePageState extends State<MyHomePage> {
               },
             ),
             IconButton(
-              icon: const Icon(Icons.schedule_outlined),
+              icon: const Icon(Icons.settings),
               color: Colors.black,
               iconSize: 30.0,
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => smartschedulerpage()),
+                  MaterialPageRoute(builder: (context) => settingsPage()),
                 );
               },
             ),
@@ -342,8 +342,6 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-
-
 
 // Scheduler Page class
 class SchedulerPage extends StatelessWidget {
@@ -366,6 +364,7 @@ class schedulerpage extends StatefulWidget {
 }
 
 class _schedulerpage extends State<schedulerpage> {
+  DateTime date = DateTime(2022, 12, 24);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -390,37 +389,62 @@ class _schedulerpage extends State<schedulerpage> {
               image: AssetImage("images/background.jpg"), fit: BoxFit.cover),
         ),
         child: Column(
-          children: [],
+          children: [
+            Container(
+              child:Column(
+                children: [
+                  Text(
+                    '${date.year}/${date.month}/${date.day}',
+                    style: TextStyle(fontSize: 32),
+                  ),
+                  const SizedBox(height:16),
+                  ElevatedButton(
+                    child:Text('Select Date'),
+                    onPressed: () async{
+                      DateTime? newDate = await showDatePicker(
+                        context: context,
+                        initialDate: date,
+                        firstDate: DateTime(2020),
+                        lastDate: DateTime(2100),
+                      );
+                      if(newDate == null) return;
+
+                      setState(() => date = newDate);
+                    },
+                  ),
+                ],
+              ),
+
+
+            ),
+          ],
         ),
       ),
     );
   }
 }
 
-
-
-
 // Smart Scheduler Page class
-class smartSchedulerPage extends StatelessWidget {
+class settingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: smartschedulerpage(),
+      home: settingspage(),
       debugShowCheckedModeBanner: false,
     );
   }
 }
 
-class smartschedulerpage extends StatefulWidget {
-  const smartschedulerpage({Key? key}) : super(key: key);
+class settingspage extends StatefulWidget {
+  const settingspage({Key? key}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() {
-    return _smartschedulerpage();
+    return _settingspage();
   }
 }
 
-class _smartschedulerpage extends State<smartschedulerpage> {
+class _settingspage extends State<settingspage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -430,7 +454,7 @@ class _smartschedulerpage extends State<smartschedulerpage> {
           color: Colors.black,
         ),
         title: const Text(
-          "Smart Scheduler Page",
+          "Settings",
           style: TextStyle(
               color: Colors.black, fontWeight: FontWeight.bold, fontSize: 24),
         ),
