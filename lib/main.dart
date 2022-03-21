@@ -354,8 +354,11 @@ class schedulerpage extends StatefulWidget {
 
 class _schedulerpage extends State<schedulerpage> {
   DateTime date = DateTime(2022, 12, 24);
+  TimeOfDay time = TimeOfDay(hour: 10, minute: 30);
   @override
   Widget build(BuildContext context) {
+    final hours = time.hour.toString().padLeft(2, '0');
+    final minutes = time.minute.toString().padLeft(2, '0');
     return Scaffold(
       appBar: AppBar(
         leading: const Icon(
@@ -405,6 +408,29 @@ class _schedulerpage extends State<schedulerpage> {
               ),
 
 
+            ),
+            Container(
+              child:Column(
+                children: [
+                  Text(
+                    '${time.hour}:${time.minute}',
+                    style:TextStyle(fontSize:32),
+                  ),
+                  const SizedBox(height:16),
+                  ElevatedButton(
+                    child:Text('Select Time'),
+                    onPressed:() async{
+                      TimeOfDay? newTime = await showTimePicker(
+                          context: context,
+                          initialTime:time
+                      );
+                      if(newTime == null) return;
+                      setState(() => time =newTime);
+                    },
+
+                  ),
+                ],
+              ),
             ),
           ],
         ),
