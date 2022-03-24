@@ -23,12 +23,14 @@ class schedulerpage extends StatefulWidget {
 }
 
 class _schedulerpage extends State<schedulerpage> {
-  DateTime date = DateTime(2022, 12, 24);
+  //DateTime date = DateTime(2022, 12, 24);
   TimeOfDay time = TimeOfDay(hour: 10, minute: 30);
   @override
   Widget build(BuildContext context) {
     final hours = time.hour.toString().padLeft(2, '0');
     final minutes = time.minute.toString().padLeft(2, '0');
+    //DateTime now = new DateTime.now();
+    //var rtime = now.hour;
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -48,7 +50,7 @@ class _schedulerpage extends State<schedulerpage> {
         ),
         child: Column(
           children: [
-            Container(
+            /*Container(
               child:Column(
                 children: [
                   Text(
@@ -74,12 +76,12 @@ class _schedulerpage extends State<schedulerpage> {
               ),
 
 
-            ),
+            ),*/
             Container(
               child:Column(
                 children: [
                   Text(
-                    '${time.hour}:${time.minute}',
+                    '${time.hour} ''hours',
                     style:TextStyle(fontSize:32),
                   ),
                   const SizedBox(height:16),
