@@ -61,7 +61,7 @@ class _MainPageState extends State<MainPage> {
       ),*/
       body: IndexedStack(
         index: _selectedIndex,
-        children: <Widget>[..._pages],
+        children: <Widget>[..._pages], // _pages[_selectedIndex]
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,

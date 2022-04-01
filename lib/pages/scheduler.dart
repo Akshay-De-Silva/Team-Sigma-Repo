@@ -1,7 +1,10 @@
+import 'dart:async';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:toggle_switch/toggle_switch.dart';
 
 class SchedulerPage extends StatelessWidget {
   @override
@@ -23,18 +26,20 @@ class schedulerpage extends StatefulWidget {
 }
 
 class _schedulerpage extends State<schedulerpage> {
+  late Timer _timer;
   //DateTime date = DateTime(2022, 12, 24);
   TimeOfDay time = TimeOfDay(hour: 10, minute: 30);
   String On = "OFF";
   bool light = false;
   int _value = 0;
+  bool select = false;
   final dbR = FirebaseDatabase.instance.reference();
   @override
   Widget build(BuildContext context) {
     final hours = time.hour.toString().padLeft(2, '0');
     final minutes = time.minute.toString().padLeft(2, '0');
-    //DateTime now = new DateTime.now();
-    //var rtime = now.hour;
+    DateTime now = new DateTime.now();
+    var rtime = now.hour;
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -54,33 +59,6 @@ class _schedulerpage extends State<schedulerpage> {
         ),
         child: Column(
           children: [
-            /*Container(
-              child:Column(
-                children: [
-                  Text(
-                    '${date.year}/${date.month}/${date.day}',
-                    style: TextStyle(fontSize: 32),
-                  ),
-                  const SizedBox(height:16),
-                  ElevatedButton(
-                    child:Text('Select Date'),
-                    onPressed: () async{
-                      DateTime? newDate = await showDatePicker(
-                        context: context,
-                        initialDate: date,
-                        firstDate: DateTime(2020),
-                        lastDate: DateTime(2100),
-                      );
-                      if(newDate == null) return;
-
-                      setState(() => date = newDate);
-                    },
-                  ),
-                ],
-              ),
-
-
-            ),*/
             Container(
               child:Column(
                 children: [
@@ -116,12 +94,12 @@ class _schedulerpage extends State<schedulerpage> {
                 if (light) {
                   //if ledstatus is true, then turn off the led
                   //if led is on, turn off
-                  dbR.child("Light").set({"Switch": "OFF"});
+                  //dbR.child("Light").set({"Switch": "OFF"});
                   light = false;
                 } else {
                   //if ledstatus is false, then turn on the led
                   //if led is off, turn on
-                  dbR.child("Light").set({"Switch": "ON"});
+                  //dbR.child("Light").set({"Switch": "ON"});
                   light = true;
                 }
                 setState(() {
@@ -140,19 +118,19 @@ class _schedulerpage extends State<schedulerpage> {
                   padding: const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
                   child: light
                       ? const Text("BULB IS ON",
-                      style: TextStyle(
-                        fontSize: 14.0,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black,
-                      ))
+                          style: TextStyle(
+                            fontSize: 14.0,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                          ))
                       : const Text(
-                    "BULB IS OFF",
-                    style: TextStyle(
-                      fontSize: 14.0,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                    ),
-                  )),
+                          "BULB IS OFF",
+                          style: TextStyle(
+                            fontSize: 14.0,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                          ),
+                        )),
             ),
             Column(
               children: [
@@ -178,70 +156,70 @@ class _schedulerpage extends State<schedulerpage> {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         mainAxisSize: MainAxisSize.max,
                         children: [
-                          const Icon(
-                            Icons.lightbulb_outline,
-                            color: Colors.amber,
-                            size: 30,
-                          ),
-                          Expanded(
-                            child: Slider(
-                              value: _value.toDouble(),
-                              min: 0.0,
-                              max: 100.0,
-                              divisions: 10,
-                              activeColor: Colors.black,
-                              inactiveColor: Colors.white,
-                              label: '${_value.round()}',
-                              onChanged: (double newValue) {
-                                setState(
-                                      () {
-                                    _value = newValue.round();
-                                    if (light == true) {
-                                      if (_value == 0) {
-                                        dbR.child("Light").set({"Switch": "0"});
-                                      }
-                                      if (_value == 10) {
-                                        dbR.child("Light").set({"Switch": "10"});
-                                      }
-                                      if (_value == 20) {
-                                        dbR.child("Light").set({"Switch": "20"});
-                                      }
-                                      if (_value == 30) {
-                                        dbR.child("Light").set({"Switch": "30"});
-                                      }
-                                      if (_value == 40) {
-                                        dbR.child("Light").set({"Switch": "40"});
-                                      }
-                                      if (_value == 50) {
-                                        dbR.child("Light").set({"Switch": "50"});
-                                      }
-                                      if (_value == 60) {
-                                        dbR.child("Light").set({"Switch": "60"});
-                                      }
-                                      if (_value == 70) {
-                                        dbR.child("Light").set({"Switch": "70"});
-                                      }
-                                      if (_value == 80) {
-                                        dbR.child("Light").set({"Switch": "80"});
-                                      }
-                                      if (_value == 90) {
-                                        dbR.child("Light").set({"Switch": "90"});
-                                      }
-                                      if (_value == 100) {
-                                        dbR.child("Light").set({"Switch": "100"});
-                                      }
-                                    }
-                                  },
-                                );
+                      const Icon(
+                        Icons.lightbulb_outline,
+                        color: Colors.amber,
+                        size: 30,
+                      ),
+                      Expanded(
+                        child: Slider(
+                          value: _value.toDouble(),
+                          min: 0.0,
+                          max: 100.0,
+                          divisions: 10,
+                          activeColor: Colors.black,
+                          inactiveColor: Colors.white,
+                          label: '${_value.round()}',
+                          onChanged: (double newValue) {
+                            setState(
+                              () {
+                                _value = newValue.round();
+                                /*if (light == true) {
+                                  if (_value == 0) {
+                                    dbR.child("Light").set({"Switch": "0"});
+                                  }
+                                  if (_value == 10) {
+                                    dbR.child("Light").set({"Switch": "10"});
+                                  }
+                                  if (_value == 20) {
+                                    dbR.child("Light").set({"Switch": "20"});
+                                  }
+                                  if (_value == 30) {
+                                    dbR.child("Light").set({"Switch": "30"});
+                                  }
+                                  if (_value == 40) {
+                                    dbR.child("Light").set({"Switch": "40"});
+                                  }
+                                  if (_value == 50) {
+                                    dbR.child("Light").set({"Switch": "50"});
+                                  }
+                                  if (_value == 60) {
+                                    dbR.child("Light").set({"Switch": "60"});
+                                  }
+                                  if (_value == 70) {
+                                    dbR.child("Light").set({"Switch": "70"});
+                                  }
+                                  if (_value == 80) {
+                                    dbR.child("Light").set({"Switch": "80"});
+                                  }
+                                  if (_value == 90) {
+                                    dbR.child("Light").set({"Switch": "90"});
+                                  }
+                                  if (_value == 100) {
+                                    dbR.child("Light").set({"Switch": "100"});
+                                  }
+                                }*/
                               },
-                            ),
-                          ),
-                          const Icon(
-                            Icons.lightbulb,
-                            color: Colors.amber,
-                            size: 30,
-                          ),
-                        ])),
+                            );
+                          },
+                        ),
+                      ),
+                      const Icon(
+                        Icons.lightbulb,
+                        color: Colors.amber,
+                        size: 30,
+                      ),
+                    ])),
               ],
             ),
             Column(children: [
@@ -319,6 +297,79 @@ class _schedulerpage extends State<schedulerpage> {
                 ),
               ),
             ]),
+            Container(
+              margin: EdgeInsetsDirectional.only(top: 40),
+              child: Row(
+                children: [
+                  Text(
+                    'SCHEDULER',
+                    style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                  ),
+                  Switch(
+                    activeColor: Colors.amberAccent,
+                    inactiveThumbColor: Colors.redAccent,
+                    value: select,
+                    onChanged: (val) {
+                      setState(() {
+                        select = val;
+                        print(select);
+                      });
+                      if (select == true) {
+                        const oneSec = Duration(seconds: 3);
+                        _timer = Timer.periodic(
+                          oneSec,
+                          (Timer timer) => setState(
+                            () {
+                              //if (rtime == time.hour) {
+                              if (light==false) {
+                                dbR.child("Light").set({"Switch": "OFF"});
+                                //light = false;
+                              } else{
+                                dbR.child("Light").set({"Switch": "ON"});
+                                //light = true;
+                                /*if (_value == 0) {
+                                  dbR.child("Light").set({"Switch": "0"});
+                                }*/
+                                /*if (_value == 10) {
+                                  dbR.child("Light").set({"Switch": "10"});
+                                }
+                                if (_value == 20) {
+                                  dbR.child("Light").set({"Switch": "20"});
+                                }
+                                if (_value == 30) {
+                                  dbR.child("Light").set({"Switch": "30"});
+                                }
+                                if (_value == 40) {
+                                  dbR.child("Light").set({"Switch": "40"});
+                                }
+                                if (_value == 50) {
+                                  dbR.child("Light").set({"Switch": "50"});
+                                }
+                                if (_value == 60) {
+                                  dbR.child("Light").set({"Switch": "60"});
+                                }
+                                if (_value == 70) {
+                                  dbR.child("Light").set({"Switch": "70"});
+                                }
+                                if (_value == 80) {
+                                  dbR.child("Light").set({"Switch": "80"});
+                                }
+                                if (_value == 90) {
+                                  dbR.child("Light").set({"Switch": "90"});
+                                }
+                                if (_value == 100) {
+                                  dbR.child("Light").set({"Switch": "100"});
+                                }*/
+                              }
+                            },
+                          ),
+                        );
+                      }
+                    },
+                  )
+                ],
+              ),
+            ),
           ],
         ),
       ),

@@ -44,7 +44,9 @@ class _settingspage extends State<settingspage> {
               image: AssetImage("images/background.jpg"), fit: BoxFit.cover),
         ),
         child: Column(
-          children: [],
+          children: [
+
+          ],
         ),
       ),
     );
