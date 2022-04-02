@@ -72,7 +72,7 @@ void loop()
 
   }
 
-  //Here we're controlling the voltage of the bulb in order to controll the brightness.
+  //Here we're controlling the voltage of the bulb in order to controll the brightness/.
 
  if(light=="0")
   {
