@@ -41,6 +41,7 @@ class _schedulerpage extends State<schedulerpage> {
     final minutes = time.minute.toString().padLeft(2, '0');
     DateTime now = new DateTime.now();
     var rtime = now.hour;
+    late String colour;
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -290,9 +291,10 @@ class _schedulerpage extends State<schedulerpage> {
                       height: 20,
                       minWidth: 10,
                       onPressed: () {
-                        if (light == true) {
+                        colour = 'red';
+                        /*if (light == true) {
                           dbR.child("Light").set({"Switch": "red"});
-                        }
+                        }*/
                       },
                     ),
                     FlatButton(
@@ -301,9 +303,10 @@ class _schedulerpage extends State<schedulerpage> {
                       height: 20,
                       minWidth: 10,
                       onPressed: () {
-                        if (light == true) {
+                        colour ='green';
+                        /*if (light == true) {
                           dbR.child("Light").set({"Switch": "green"});
-                        }
+                        }*/
                       },
                     ),
                     FlatButton(
@@ -312,9 +315,10 @@ class _schedulerpage extends State<schedulerpage> {
                       height: 20,
                       minWidth: 10,
                       onPressed: () {
-                        if (light == true) {
+                        colour = 'blue';
+                        /*if (light == true) {
                           dbR.child("Light").set({"Switch": "blue"});
-                        }
+                        }*/
                       },
                     ),
                     FlatButton(
@@ -323,9 +327,10 @@ class _schedulerpage extends State<schedulerpage> {
                       height: 20,
                       minWidth: 10,
                       onPressed: () {
-                        if (light == true) {
+                        colour ='yellow';
+                        /*if (light == true) {
                           dbR.child("Light").set({"Switch": "yellow"});
-                        }
+                        }*/
                       },
                     ),
                   ],
@@ -392,10 +397,31 @@ class _schedulerpage extends State<schedulerpage> {
                                 if (value == 100) {
                                   dbR.child("Light").set({"Switch": "100"});
                                 }
+                                if(colour == 'red'){
+                                  setState(() {
+                                    dbR.child("Light").set({"Switch": "red"});
+                                  });
+                                }
+                                if(colour == 'green'){
+                                  setState(() {
+                                    dbR.child("Light").set({"Switch": "green"});
+                                  });
+                                }
+                                if(colour == 'blue'){
+                                  setState(() {
+                                    dbR.child("Light").set({"Switch": "blue"});
+                                  });
+                                }
+                                if(colour == 'yellow'){
+                                  setState(() {
+                                    dbR.child("Light").set({"Switch": "yellow"});
+                                  });
+                                }
+                                timer.cancel();
                               } else if (light == false) {
                                 dbR.child("Light").set({"Switch": "OFF"});
+                                timer.cancel();
                               }
-                              timer.cancel();
                             },
                           ),
                         );
