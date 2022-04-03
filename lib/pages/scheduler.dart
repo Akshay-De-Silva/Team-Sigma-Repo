@@ -35,13 +35,13 @@ class _schedulerpage extends State<schedulerpage> {
   int value = 0;
   bool select = false;
   final dbR = FirebaseDatabase.instance.reference();
+  late String colour;
   @override
   Widget build(BuildContext context) {
     final hours = time.hour.toString().padLeft(2, '0');
     final minutes = time.minute.toString().padLeft(2, '0');
     DateTime now = new DateTime.now();
     var rtime = now.hour;
-    late String colour;
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -190,41 +190,6 @@ class _schedulerpage extends State<schedulerpage> {
                             setState(
                               () {
                                 value = newValue.round();
-                                /*if (light == true) {
-                                  if (_value == 0) {
-                                    dbR.child("Light").set({"Switch": "0"});
-                                  }
-                                  if (_value == 10) {
-                                    dbR.child("Light").set({"Switch": "10"});
-                                  }
-                                  if (_value == 20) {
-                                    dbR.child("Light").set({"Switch": "20"});
-                                  }
-                                  if (_value == 30) {
-                                    dbR.child("Light").set({"Switch": "30"});
-                                  }
-                                  if (_value == 40) {
-                                    dbR.child("Light").set({"Switch": "40"});
-                                  }
-                                  if (_value == 50) {
-                                    dbR.child("Light").set({"Switch": "50"});
-                                  }
-                                  if (_value == 60) {
-                                    dbR.child("Light").set({"Switch": "60"});
-                                  }
-                                  if (_value == 70) {
-                                    dbR.child("Light").set({"Switch": "70"});
-                                  }
-                                  if (_value == 80) {
-                                    dbR.child("Light").set({"Switch": "80"});
-                                  }
-                                  if (_value == 90) {
-                                    dbR.child("Light").set({"Switch": "90"});
-                                  }
-                                  if (_value == 100) {
-                                    dbR.child("Light").set({"Switch": "100"});
-                                  }
-                                }*/
                               },
                             );
                           },
@@ -238,110 +203,13 @@ class _schedulerpage extends State<schedulerpage> {
                     ],
                   ),
                 ),
-                /*DropdownButton<String>(
-                  iconSize: 24,
-                  elevation: 16,
-                  onChanged: (String? newValue){
-                    setState(() {
-                      dropdownValue = newValue!;
-                    });
-                  },
-                  value: dropdownValue,
-                  items: items.map<DropdownMenuItem<String>>(
-                      (String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Text(value),
-                        );
-                      },
-                  ).toList(),
-                ),*/
               ],
             ),
-            Column(children: [
-              Container(
-                  child: Padding(
-                      padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
-                      child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          mainAxisSize: MainAxisSize.max,
-                          children: const [
-                            Text(
-                              "Color",
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            )
-                          ]))),
-              Container(
-                decoration: BoxDecoration(
-                  color: Colors.white54,
-                  borderRadius: BorderRadius.circular(16.0),
-                ),
-                height: 30,
-                margin: const EdgeInsets.all(20.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  mainAxisSize: MainAxisSize.max,
-                  children: <Widget>[
-                    FlatButton(
-                      child: const Text(""),
-                      color: Colors.red,
-                      height: 20,
-                      minWidth: 10,
-                      onPressed: () {
-                        colour = 'red';
-                        /*if (light == true) {
-                          dbR.child("Light").set({"Switch": "red"});
-                        }*/
-                      },
-                    ),
-                    FlatButton(
-                      child: const Text(""),
-                      color: Colors.green,
-                      height: 20,
-                      minWidth: 10,
-                      onPressed: () {
-                        colour ='green';
-                        /*if (light == true) {
-                          dbR.child("Light").set({"Switch": "green"});
-                        }*/
-                      },
-                    ),
-                    FlatButton(
-                      child: const Text(""),
-                      color: Colors.blue,
-                      height: 20,
-                      minWidth: 10,
-                      onPressed: () {
-                        colour = 'blue';
-                        /*if (light == true) {
-                          dbR.child("Light").set({"Switch": "blue"});
-                        }*/
-                      },
-                    ),
-                    FlatButton(
-                      child: const Text(""),
-                      color: Colors.yellow,
-                      height: 20,
-                      minWidth: 10,
-                      onPressed: () {
-                        colour ='yellow';
-                        /*if (light == true) {
-                          dbR.child("Light").set({"Switch": "yellow"});
-                        }*/
-                      },
-                    ),
-                  ],
-                ),
-              ),
-            ]),
             Container(
               margin: EdgeInsetsDirectional.only(top: 40),
               child: Row(
                 children: [
-                  Text(
+                  const Text(
                     'SCHEDULER',
                     style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                   ),
@@ -355,7 +223,7 @@ class _schedulerpage extends State<schedulerpage> {
                         print(select);
                       });
                       if (select == true) {
-                        const oneSec = Duration(seconds: 10);
+                        const oneSec = Duration(seconds: 5);
                         _timer = Timer.periodic(
                           oneSec,
                           (Timer timer) => setState(
@@ -366,67 +234,37 @@ class _schedulerpage extends State<schedulerpage> {
                                 //light = false;
                                 if (value == 0) {
                                   dbR.child("Light").set({"Switch": "0"});
-                                }
-                                if (value == 10) {
+                                } else if (value == 10) {
                                   dbR.child("Light").set({"Switch": "10"});
-                                }
-                                if (value == 20) {
+                                } else if (value == 20) {
                                   dbR.child("Light").set({"Switch": "20"});
-                                }
-                                if (value == 30) {
+                                } else if (value == 30) {
                                   dbR.child("Light").set({"Switch": "30"});
-                                }
-                                if (value == 40) {
+                                } else if (value == 40) {
                                   dbR.child("Light").set({"Switch": "40"});
-                                }
-                                if (value == 50) {
+                                } else if (value == 50) {
                                   dbR.child("Light").set({"Switch": "50"});
-                                }
-                                if (value == 60) {
+                                } else if (value == 60) {
                                   dbR.child("Light").set({"Switch": "60"});
-                                }
-                                if (value == 70) {
+                                } else if (value == 70) {
                                   dbR.child("Light").set({"Switch": "70"});
-                                }
-                                if (value == 80) {
+                                } else if (value == 80) {
                                   dbR.child("Light").set({"Switch": "80"});
-                                }
-                                if (value == 90) {
+                                } else if (value == 90) {
                                   dbR.child("Light").set({"Switch": "90"});
-                                }
-                                if (value == 100) {
+                                } else if (value == 100) {
                                   dbR.child("Light").set({"Switch": "100"});
                                 }
-                                if(colour == 'red'){
-                                  setState(() {
-                                    dbR.child("Light").set({"Switch": "red"});
-                                  });
-                                }
-                                if(colour == 'green'){
-                                  setState(() {
-                                    dbR.child("Light").set({"Switch": "green"});
-                                  });
-                                }
-                                if(colour == 'blue'){
-                                  setState(() {
-                                    dbR.child("Light").set({"Switch": "blue"});
-                                  });
-                                }
-                                if(colour == 'yellow'){
-                                  setState(() {
-                                    dbR.child("Light").set({"Switch": "yellow"});
-                                  });
-                                }
-                                timer.cancel();
                               } else if (light == false) {
                                 dbR.child("Light").set({"Switch": "OFF"});
-                                timer.cancel();
                               }
+                              _timer.cancel();
                             },
                           ),
                         );
                       } else if (select == false) {
                         light = false;
+                        value = 0;
                         dbR.child("Light").set({"Switch": "OFF"});
                       }
                     },
