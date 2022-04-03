@@ -29,7 +29,7 @@ class _MyHomePageState extends State<MyHomePage> {
   bool light = false;
   int _value = 0;
   final dbR = FirebaseDatabase.instance.reference();
-
+  int tempValue = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,15 +56,15 @@ class _MyHomePageState extends State<MyHomePage> {
                 padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 30),
                 child: light
                     ? Image.asset(
-                  'images/light-on.png',
-                  height: 200,
-                  width: 200,
-                )
+                        'images/light-on.png',
+                        height: 100,
+                        width: 100,
+                      )
                     : Image.asset(
-                  'images/light-off.png',
-                  height: 200,
-                  width: 200,
-                ),
+                        'images/light-off.png',
+                        height: 100,
+                        width: 100,
+                      ),
                 // child:Image.asset("images/light-on.png",height: 200,    width: 200,),
               ),
             ),
@@ -104,19 +104,19 @@ class _MyHomePageState extends State<MyHomePage> {
                   padding: const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 10),
                   child: light
                       ? const Text("BULB IS ON",
-                      style: TextStyle(
-                        fontSize: 14.0,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black,
-                      ))
+                          style: TextStyle(
+                            fontSize: 14.0,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                          ))
                       : const Text(
-                    "BULB IS OFF",
-                    style: TextStyle(
-                      fontSize: 14.0,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                    ),
-                  )),
+                          "BULB IS OFF",
+                          style: TextStyle(
+                            fontSize: 14.0,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                          ),
+                        )),
             ),
             Column(
               children: [
@@ -142,70 +142,70 @@ class _MyHomePageState extends State<MyHomePage> {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         mainAxisSize: MainAxisSize.max,
                         children: [
-                          const Icon(
-                            Icons.lightbulb_outline,
-                            color: Colors.amber,
-                            size: 30,
-                          ),
-                          Expanded(
-                            child: Slider(
-                              value: _value.toDouble(),
-                              min: 0.0,
-                              max: 100.0,
-                              divisions: 10,
-                              activeColor: Colors.black,
-                              inactiveColor: Colors.white,
-                              label: '${_value.round()}',
-                              onChanged: (double newValue) {
-                                setState(
-                                      () {
-                                    _value = newValue.round();
-                                    if (light == true) {
-                                      if (_value == 0) {
-                                        dbR.child("Light").set({"Switch": "0"});
-                                      }
-                                      if (_value == 10) {
-                                        dbR.child("Light").set({"Switch": "10"});
-                                      }
-                                      if (_value == 20) {
-                                        dbR.child("Light").set({"Switch": "20"});
-                                      }
-                                      if (_value == 30) {
-                                        dbR.child("Light").set({"Switch": "30"});
-                                      }
-                                      if (_value == 40) {
-                                        dbR.child("Light").set({"Switch": "40"});
-                                      }
-                                      if (_value == 50) {
-                                        dbR.child("Light").set({"Switch": "50"});
-                                      }
-                                      if (_value == 60) {
-                                        dbR.child("Light").set({"Switch": "60"});
-                                      }
-                                      if (_value == 70) {
-                                        dbR.child("Light").set({"Switch": "70"});
-                                      }
-                                      if (_value == 80) {
-                                        dbR.child("Light").set({"Switch": "80"});
-                                      }
-                                      if (_value == 90) {
-                                        dbR.child("Light").set({"Switch": "90"});
-                                      }
-                                      if (_value == 100) {
-                                        dbR.child("Light").set({"Switch": "100"});
-                                      }
-                                    }
-                                  },
-                                );
+                      const Icon(
+                        Icons.lightbulb_outline,
+                        color: Colors.amber,
+                        size: 30,
+                      ),
+                      Expanded(
+                        child: Slider(
+                          value: _value.toDouble(),
+                          min: 0.0,
+                          max: 100.0,
+                          divisions: 10,
+                          activeColor: Colors.black,
+                          inactiveColor: Colors.white,
+                          label: '${_value.round()}',
+                          onChanged: (double newValue) {
+                            setState(
+                              () {
+                                _value = newValue.round();
+                                if (light == true) {
+                                  if (_value == 0) {
+                                    dbR.child("Light").set({"Switch": "0"});
+                                  }
+                                  if (_value == 10) {
+                                    dbR.child("Light").set({"Switch": "10"});
+                                  }
+                                  if (_value == 20) {
+                                    dbR.child("Light").set({"Switch": "20"});
+                                  }
+                                  if (_value == 30) {
+                                    dbR.child("Light").set({"Switch": "30"});
+                                  }
+                                  if (_value == 40) {
+                                    dbR.child("Light").set({"Switch": "40"});
+                                  }
+                                  if (_value == 50) {
+                                    dbR.child("Light").set({"Switch": "50"});
+                                  }
+                                  if (_value == 60) {
+                                    dbR.child("Light").set({"Switch": "60"});
+                                  }
+                                  if (_value == 70) {
+                                    dbR.child("Light").set({"Switch": "70"});
+                                  }
+                                  if (_value == 80) {
+                                    dbR.child("Light").set({"Switch": "80"});
+                                  }
+                                  if (_value == 90) {
+                                    dbR.child("Light").set({"Switch": "90"});
+                                  }
+                                  if (_value == 100) {
+                                    dbR.child("Light").set({"Switch": "100"});
+                                  }
+                                }
                               },
-                            ),
-                          ),
-                          const Icon(
-                            Icons.lightbulb,
-                            color: Colors.amber,
-                            size: 30,
-                          ),
-                        ])),
+                            );
+                          },
+                        ),
+                      ),
+                      const Icon(
+                        Icons.lightbulb,
+                        color: Colors.amber,
+                        size: 30,
+                      ),
+                    ])),
               ],
             ),
             Column(children: [
@@ -222,8 +222,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
                               ),
-                            )
-                          ]))),
+                            ),
+                          ],
+                      ),
+                  ),
+              ),
               Container(
                 decoration: BoxDecoration(
                   color: Colors.white54,
@@ -281,6 +284,90 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ],
                 ),
+              ),
+              Column(
+                children: [
+                  Container(
+                    margin: const EdgeInsetsDirectional.only(top: 10),
+                    child: Padding(
+                      padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.max,
+                        children: const [
+                          Text(
+                            "Color Temperature",
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Container(
+                    margin: const EdgeInsetsDirectional.only(top: 10),
+                      child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                        const Icon(
+                          Icons.lightbulb,
+                          color: Colors.red,
+                          size: 30,
+                        ),
+                        Expanded(
+                          child: Slider(
+                              value: tempValue.toDouble(),
+                              min: 0.0,
+                              max: 100.0,
+                              divisions: 10,
+                              activeColor: Colors.black,
+                              inactiveColor: Colors.white,
+                              label: '${tempValue.round()}',
+                              onChanged: (double newValue) {
+                                setState(() {
+                                  tempValue = newValue.round();
+                                  if (light == true) {
+                                    if (tempValue == 0) {
+                                      //dbR.child("Light").set({"Switch": "red1blue1"});
+                                    }else if (tempValue == 10) {
+                                      dbR.child("Light").set({"Switch": "red1blue1"});
+                                    }else if (tempValue == 20) {
+                                      dbR.child("Light").set({"Switch": "red2blue2"});
+                                    }else if (tempValue == 30) {
+                                      dbR.child("Light").set({"Switch": "red3blue3"});
+                                    }else if (tempValue == 40) {
+                                      dbR.child("Light").set({"Switch": "red4blue4"});
+                                    }else if (tempValue == 50) {
+                                      dbR.child("Light").set({"Switch": "red5blue5"});
+                                    }else if (tempValue == 60) {
+                                      dbR.child("Light").set({"Switch": "red6blue6"});
+                                    }else if (tempValue == 70) {
+                                      dbR.child("Light").set({"Switch": "red7blue7"});
+                                    }else if (tempValue == 80) {
+                                      dbR.child("Light").set({"Switch": "red8blue8"});
+                                    }else if (tempValue == 90) {
+                                      dbR.child("Light").set({"Switch": "red9blue9"});
+                                    }else if (tempValue == 100) {
+                                      dbR.child("Light").set({"Switch": "red10blue10"});
+                                    }
+                                  }
+                                });
+                              },
+                              //label: 'Bulb Brigtness',
+                              semanticFormatterCallback: (double newValue) {
+                                return '${newValue.round()} dollars';
+                              }),
+                        ),
+                        const Icon(
+                          Icons.lightbulb,
+                          color: Colors.blue,
+                          size: 30,
+                        ),
+                      ])),
+                ],
               ),
             ]),
           ],
