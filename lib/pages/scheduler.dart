@@ -36,6 +36,7 @@ class _schedulerpage extends State<schedulerpage> {
   bool select = false;
   final dbR = FirebaseDatabase.instance.reference();
   late String colour;
+  int tempValue = 50;
   @override
   Widget build(BuildContext context) {
     final hours = time.hour.toString().padLeft(2, '0');
@@ -205,6 +206,66 @@ class _schedulerpage extends State<schedulerpage> {
                 ),
               ],
             ),
+
+            Column(
+              children: [
+                Container(
+                  margin: const EdgeInsetsDirectional.only(top: 10),
+                  child: Padding(
+                    padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.max,
+                      children: const [
+                        Text(
+                          "Color Temperature",
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Container(
+                    margin: const EdgeInsetsDirectional.only(top: 10),
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          const Icon(
+                            Icons.lightbulb,
+                            color: Colors.red,
+                            size: 30,
+                          ),
+                          Expanded(
+                            child: Slider(
+                                value: tempValue.toDouble(),
+                                min: 0.0,
+                                max: 100.0,
+                                divisions: 10,
+                                activeColor: Colors.black,
+                                inactiveColor: Colors.white,
+                                label: '${tempValue.round()}',
+                                onChanged: (double newValue) {
+                                  setState(() {
+                                    tempValue = newValue.round();
+                                  });
+                                },
+                                //label: 'Bulb Brigtness',
+                                semanticFormatterCallback: (double newValue) {
+                                  return '${newValue.round()} dollars';
+                                }),
+                          ),
+                          const Icon(
+                            Icons.lightbulb,
+                            color: Colors.blue,
+                            size: 30,
+                          ),
+                        ])),
+              ],
+            ),
             Container(
               margin: EdgeInsetsDirectional.only(top: 40),
               child: Row(
@@ -254,6 +315,29 @@ class _schedulerpage extends State<schedulerpage> {
                                   dbR.child("Light").set({"Switch": "90"});
                                 } else if (value == 100) {
                                   dbR.child("Light").set({"Switch": "100"});
+                                }
+                                if (tempValue == 0) {
+                                  //dbR.child("Light").set({"Switch": "red1blue1"});
+                                }else if (tempValue == 10) {
+                                  dbR.child("Light").set({"Switch": "red1blue1"});
+                                }else if (tempValue == 20) {
+                                  dbR.child("Light").set({"Switch": "red2blue2"});
+                                }else if (tempValue == 30) {
+                                  dbR.child("Light").set({"Switch": "red3blue3"});
+                                }else if (tempValue == 40) {
+                                  dbR.child("Light").set({"Switch": "red4blue4"});
+                                }else if (tempValue == 50) {
+                                  dbR.child("Light").set({"Switch": "red5blue5"});
+                                }else if (tempValue == 60) {
+                                  dbR.child("Light").set({"Switch": "red6blue6"});
+                                }else if (tempValue == 70) {
+                                  dbR.child("Light").set({"Switch": "red7blue7"});
+                                }else if (tempValue == 80) {
+                                  dbR.child("Light").set({"Switch": "red8blue8"});
+                                }else if (tempValue == 90) {
+                                  dbR.child("Light").set({"Switch": "red9blue9"});
+                                }else if (tempValue == 100) {
+                                  dbR.child("Light").set({"Switch": "red10blue10"});
                                 }
                               } else if (light == false) {
                                 dbR.child("Light").set({"Switch": "OFF"});

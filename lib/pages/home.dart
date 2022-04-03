@@ -29,7 +29,7 @@ class _MyHomePageState extends State<MyHomePage> {
   bool light = false;
   int _value = 0;
   final dbR = FirebaseDatabase.instance.reference();
-  int tempValue = 0;
+  int tempValue = 50;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
