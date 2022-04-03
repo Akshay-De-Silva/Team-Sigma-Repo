@@ -25,6 +25,8 @@ class schedulerpage extends StatefulWidget {
 }
 
 class _schedulerpage extends State<schedulerpage> {
+  //List<String> items = <String>['0', '10', '20', '30', '40', '50', '60', '70', '80', '90', '100'];
+  //String dropdownValue = '0';
   late Timer _timer;
   //DateTime date = DateTime(2022, 12, 24);
   TimeOfDay time = TimeOfDay(hour: 10, minute: 30);
@@ -39,7 +41,6 @@ class _schedulerpage extends State<schedulerpage> {
     final minutes = time.minute.toString().padLeft(2, '0');
     DateTime now = new DateTime.now();
     var rtime = now.hour;
-    String dropdownValue = '0';
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -237,26 +238,22 @@ class _schedulerpage extends State<schedulerpage> {
                   ),
                 ),
                 /*DropdownButton<String>(
-                  value: dropdownValue,
-                  icon: const Icon(Icons.arrow_downward),
-                  elevation: 100,
-                  style: const TextStyle(color: Colors.deepPurple),
-                  underline: Container(
-                    height: 2,
-                    color: Colors.deepPurpleAccent,
-                  ),
-                  onChanged: (String? newValue) {
+                  iconSize: 24,
+                  elevation: 16,
+                  onChanged: (String? newValue){
                     setState(() {
                       dropdownValue = newValue!;
                     });
                   },
-                  items: <String>['0', '10', '20', '30', '40', '50', '60', '70', '80', '90', '100']
-                      .map<DropdownMenuItem<String>>((String value) {
-                    return DropdownMenuItem<String>(
-                      value: value,
-                      child: Text(value),
-                    );
-                  }).toList(),
+                  value: dropdownValue,
+                  items: items.map<DropdownMenuItem<String>>(
+                      (String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value),
+                        );
+                      },
+                  ).toList(),
                 ),*/
               ],
             ),
@@ -353,7 +350,7 @@ class _schedulerpage extends State<schedulerpage> {
                         print(select);
                       });
                       if (select == true) {
-                        const oneSec = Duration(seconds: 3);
+                        const oneSec = Duration(seconds: 10);
                         _timer = Timer.periodic(
                           oneSec,
                           (Timer timer) => setState(
@@ -362,9 +359,43 @@ class _schedulerpage extends State<schedulerpage> {
                               if (light == true && select == true) {
                                 dbR.child("Light").set({"Switch": "ON"});
                                 //light = false;
+                                if (value == 0) {
+                                  dbR.child("Light").set({"Switch": "0"});
+                                }
+                                if (value == 10) {
+                                  dbR.child("Light").set({"Switch": "10"});
+                                }
+                                if (value == 20) {
+                                  dbR.child("Light").set({"Switch": "20"});
+                                }
+                                if (value == 30) {
+                                  dbR.child("Light").set({"Switch": "30"});
+                                }
+                                if (value == 40) {
+                                  dbR.child("Light").set({"Switch": "40"});
+                                }
+                                if (value == 50) {
+                                  dbR.child("Light").set({"Switch": "50"});
+                                }
+                                if (value == 60) {
+                                  dbR.child("Light").set({"Switch": "60"});
+                                }
+                                if (value == 70) {
+                                  dbR.child("Light").set({"Switch": "70"});
+                                }
+                                if (value == 80) {
+                                  dbR.child("Light").set({"Switch": "80"});
+                                }
+                                if (value == 90) {
+                                  dbR.child("Light").set({"Switch": "90"});
+                                }
+                                if (value == 100) {
+                                  dbR.child("Light").set({"Switch": "100"});
+                                }
                               } else if (light == false) {
                                 dbR.child("Light").set({"Switch": "OFF"});
                               }
+                              timer.cancel();
                             },
                           ),
                         );
