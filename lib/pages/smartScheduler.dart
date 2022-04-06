@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:smartbulbfirebase/dataset.dart';
 
+import 'Prediction.dart';
+
 class smartSchedulerPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -2232,6 +2234,11 @@ class _settingspage extends State<settingspage> {
                   print(datasetOnOff);
                   print(datasetBrightness);
                   print(datasetColorTemp);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Prediction()),
+                );
+
               }),
             ),
           )
