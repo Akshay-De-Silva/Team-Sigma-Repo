@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'pages/home.dart';
 import 'pages/scheduler.dart';
-import 'pages/settings.dart';
+import 'pages/smartScheduler.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -42,7 +42,7 @@ class _MainPageState extends State<MainPage> {
   final List<Widget> _pages = [
     homePage(),
     schedulerpage(),
-    settingsPage(),
+    smartSchedulerPage(),
   ];
 
   int _selectedIndex = 0;

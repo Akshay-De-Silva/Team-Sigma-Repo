@@ -252,6 +252,7 @@ class _schedulerpage extends State<schedulerpage> {
                           oneSec,
                           (Timer timer) => setState(
                             () {
+                              var x = time.hour - rtime;
                               //if (rtime == time.hour) {
                               if (light == true && select == true) {
                                 dbR.child("Light").set({"Switch": "ON"});
