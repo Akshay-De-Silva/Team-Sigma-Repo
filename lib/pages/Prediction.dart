@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:smartbulbfirebase/dataset.dart';
+import 'package:smartbulbfirebase/pages/smartScheduler.dart';
 import '../MachineLearningFun.dart';
 
 void main() => runApp(const Prediction());
@@ -173,422 +174,803 @@ class _PredictionPageState extends State<PredictionPage> {
     return Scaffold(
       // key: scaffoldKey,
       backgroundColor: Colors.blueAccent,
-      body: Container(
-        child: ListView(
-          scrollDirection: Axis.vertical,
-          shrinkWrap: true,
-          children: <Widget>[
-            Row(
-              children: [
-                const Text("Smart Scheduling",
-                    style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18)),
-                Switch(
-                    activeColor: Colors.yellowAccent,
-                    value: isSwitched,
-                    onChanged: (value) async {
-                      setState(() {
-                        isSwitched = value;
-                      });
-
-                      String body = jsonEncode(json);
-                      var id = await createAlbum(body);
-                      f = jsonDecode(id.body);
-                      print(f.toString());
-                      print(f["0"]);
-                      //data0=f["0"].toString();
-                      setState(() {
-                        data0 = recomendation(f["0"].toString());
-                        data1 = recomendation(f["1"].toString());
-                        data2 = recomendation(f["2"].toString());
-                        data3 = recomendation(f["3"].toString());
-                        data4 = recomendation(f["4"].toString());
-                        data5 = recomendation(f["5"].toString());
-                        data6 = recomendation(f["6"].toString());
-                        data7 = recomendation(f["7"].toString());
-                        data8 = recomendation(f["8"].toString());
-                        data9 = recomendation(f["9"].toString());
-                        data10 = recomendation(f["10"].toString());
-                        data11 = recomendation(f["11"].toString());
-                        data12 = recomendation(f["12"].toString());
-                        data13 = recomendation(f["13"].toString());
-                        data14 = recomendation(f["14"].toString());
-                        data15 = recomendation(f["15"].toString());
-                        data16 = recomendation(f["16"].toString());
-                        data17 = recomendation(f["17"].toString());
-                        data18 = recomendation(f["18"].toString());
-                        data19 = recomendation(f["19"].toString());
-                        data20 = recomendation(f["20"].toString());
-                        data21 = recomendation(f["21"].toString());
-                        data22 = recomendation(f["22"].toString());
-                        data23 = recomendation(f["23"].toString());
-                      });
-                    }),
-
-              ],
-            ),
-
-            // TextButton(
-            //     onPressed: ()  async {
-            //       String body = jsonEncode(json);
-            //       var id= await createAlbum(body);
-            //       var f=jsonDecode(id.body);
-            //       print(f.toString());
-            //       setState(() {
-            //         //data0=f["0"].toString();
-            //         data0=recomendation(f["0"].toString());
-            //         data1=recomendation(f["1"].toString());
-            //         data2=recomendation(f["2"].toString());
-            //         data3=recomendation(f["3"].toString());
-            //         data4=recomendation(f["4"].toString());
-            //         data5=recomendation(f["5"].toString());
-            //         data6=recomendation(f["6"].toString());
-            //         data7=recomendation(f["7"].toString());
-            //         data8=recomendation(f["8"].toString());
-            //         data9=recomendation(f["9"].toString());
-            //         data10=recomendation(f["10"].toString());
-            //         data11=recomendation(f["11"].toString());
-            //         data12=recomendation(f["12"].toString());
-            //         data13=recomendation(f["13"].toString());
-            //         data14=recomendation(f["14"].toString());
-            //         data15=recomendation(f["15"].toString());
-            //         data16=recomendation(f["16"].toString());
-            //         data17=recomendation(f["17"].toString());
-            //         data18=recomendation(f["18"].toString());
-            //         data19=recomendation(f["19"].toString());
-            //         data20=recomendation(f["20"].toString());
-            //         data21=recomendation(f["21"].toString());
-            //         data22=recomendation(f["22"].toString());
-            //         data23=recomendation(f["23"].toString());
-            //       });
-            //     },
-            //     child: const Text(
-            //       'Click',
-            //       style: TextStyle(fontSize: 20),
-            //     )),
-
-            Container(
-              margin: const EdgeInsets.only(top: 10.0),
-              color: Colors.white,
-              width: 12,
-              height: 100,
-              padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      const Align(
-                        alignment: Alignment.topLeft,
-                        child: Text(
-                          "12AM",
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 13,
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 295),
-                        child: Switch(
-                          value: isSwitched,
-                          onChanged: null,
-                          //((switched){}),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Text(
-                    data0,
-                    style: const TextStyle(
+      body: ListView(
+        scrollDirection: Axis.vertical,
+        shrinkWrap: true,
+        children: <Widget>[
+          Row(
+            children: [
+              const Text("Smart Scheduler",
+                  style: TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
-                      fontSize: 12,
+                      fontSize: 18)),
+              Switch(
+                  activeColor: Colors.yellowAccent,
+                  value: isSwitched,
+                  onChanged: (value) async {
+                    setState(() {
+                      isSwitched = value;
+                    });
+
+                    String body = jsonEncode(json);
+                    var id = await createAlbum(body);
+                    f = jsonDecode(id.body);
+                    print(f.toString());
+                    print(f["0"]);
+                    //data0=f["0"].toString();
+                    setState(() {
+                      data0 = recomendation(f["0"].toString());
+                      data1 = recomendation(f["1"].toString());
+                      data2 = recomendation(f["2"].toString());
+                      data3 = recomendation(f["3"].toString());
+                      data4 = recomendation(f["4"].toString());
+                      data5 = recomendation(f["5"].toString());
+                      data6 = recomendation(f["6"].toString());
+                      data7 = recomendation(f["7"].toString());
+                      data8 = recomendation(f["8"].toString());
+                      data9 = recomendation(f["9"].toString());
+                      data10 = recomendation(f["10"].toString());
+                      data11 = recomendation(f["11"].toString());
+                      data12 = recomendation(f["12"].toString());
+                      data13 = recomendation(f["13"].toString());
+                      data14 = recomendation(f["14"].toString());
+                      data15 = recomendation(f["15"].toString());
+                      data16 = recomendation(f["16"].toString());
+                      data17 = recomendation(f["17"].toString());
+                      data18 = recomendation(f["18"].toString());
+                      data19 = recomendation(f["19"].toString());
+                      data20 = recomendation(f["20"].toString());
+                      data21 = recomendation(f["21"].toString());
+                      data22 = recomendation(f["22"].toString());
+                      data23 = recomendation(f["23"].toString());
+                    });
+                  }),
+            ],
+          ),
+          Container(
+            margin: const EdgeInsets.only(top: 10.0),
+            color: Colors.white,
+            width: 12,
+            height: 50,
+            padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+            child: Column(
+              children: [
+                const Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    "12AM",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 17,
                     ),
                   ),
-                ],
-              ),
+                ),
+                Text(
+                  data0,
+                  style: const TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                  ),
+                ),
+              ],
             ),
-
-            Container(
-                margin: const EdgeInsets.only(top: 10.0),
-                color: Colors.black,
-                width: 12,
-                height: 40,
-                padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
-                child: Text(
-                  "1AM - " + data1,
+          ),
+          Container(
+            margin: const EdgeInsets.only(top: 10.0),
+            color: Colors.white,
+            width: 12,
+            height: 50,
+            padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+            child: Column(
+              children: [
+                const Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    "1AM",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 17,
+                    ),
+                  ),
+                ),
+                Text(
+                  data1,
                   style: const TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold),
-                )),
-
-            Container(
-                margin: const EdgeInsets.only(top: 10.0),
-                color: Colors.black,
-                width: 12,
-                height: 40,
-                padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
-                child: Text(
-                  "2AM - " + data2,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(top: 10.0),
+            color: Colors.white,
+            width: 12,
+            height: 50,
+            padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+            child: Column(
+              children: [
+                const Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    "2AM",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 17,
+                    ),
+                  ),
+                ),
+                Text(
+                  data2,
                   style: const TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold),
-                )),
-
-            Container(
-                margin: const EdgeInsets.only(top: 10.0),
-                color: Colors.black,
-                width: 12,
-                height: 40,
-                padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
-                child: Text(
-                  "3AM - " + data3,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(top: 10.0),
+            color: Colors.white,
+            width: 12,
+            height: 50,
+            padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+            child: Column(
+              children: [
+                const Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    "3AM",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 17,
+                    ),
+                  ),
+                ),
+                Text(
+                  data3,
                   style: const TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold),
-                )),
-
-            Container(
-                margin: const EdgeInsets.only(top: 10.0),
-                color: Colors.black,
-                width: 12,
-                height: 40,
-                padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
-                child: Text(
-                  "4AM - " + data4,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(top: 10.0),
+            color: Colors.white,
+            width: 12,
+            height: 50,
+            padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+            child: Column(
+              children: [
+                const Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    "4AM",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 17,
+                    ),
+                  ),
+                ),
+                Text(
+                  data4,
                   style: const TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold),
-                )),
-
-            Container(
-                margin: const EdgeInsets.only(top: 10.0),
-                color: Colors.black,
-                width: 12,
-                height: 40,
-                padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
-                child: Text(
-                  "5AM - " + data5,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(top: 10.0),
+            color: Colors.white,
+            width: 12,
+            height: 50,
+            padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+            child: Column(
+              children: [
+                const Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    "5AM",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 17,
+                    ),
+                  ),
+                ),
+                Text(
+                  data5,
                   style: const TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold),
-                )),
-
-            Container(
-                margin: const EdgeInsets.only(top: 10.0),
-                color: Colors.black,
-                width: 12,
-                height: 40,
-                padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
-                child: Text(
-                  "6AM - " + data6,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(top: 10.0),
+            color: Colors.white,
+            width: 12,
+            height: 50,
+            padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+            child: Column(
+              children: [
+                const Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    "6AM",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 17,
+                    ),
+                  ),
+                ),
+                Text(
+                  data6,
                   style: const TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold),
-                )),
-
-            Container(
-                margin: const EdgeInsets.only(top: 10.0),
-                color: Colors.black,
-                width: 12,
-                height: 40,
-                padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
-                child: Text(
-                  "7AM - " + data7,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(top: 10.0),
+            color: Colors.white,
+            width: 12,
+            height: 50,
+            padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+            child: Column(
+              children: [
+                const Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    "7AM",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 17,
+                    ),
+                  ),
+                ),
+                Text(
+                  data7,
                   style: const TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold),
-                )),
-
-            Container(
-                margin: const EdgeInsets.only(top: 10.0),
-                color: Colors.black,
-                width: 12,
-                height: 40,
-                padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
-                child: Text(
-                  "8AM - " + data8,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(top: 10.0),
+            color: Colors.white,
+            width: 12,
+            height: 50,
+            padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+            child: Column(
+              children: [
+                const Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    "8AM",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 17,
+                    ),
+                  ),
+                ),
+                Text(
+                  data8,
                   style: const TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold),
-                )),
-
-            Container(
-                margin: const EdgeInsets.only(top: 10.0),
-                color: Colors.black,
-                width: 12,
-                height: 40,
-                padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
-                child: Text(
-                  "9AM - " + data9,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(top: 10.0),
+            color: Colors.white,
+            width: 12,
+            height: 50,
+            padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+            child: Column(
+              children: [
+                const Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    "9AM",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 17,
+                    ),
+                  ),
+                ),
+                Text(
+                  data9,
                   style: const TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold),
-                )),
-
-            Container(
-                margin: const EdgeInsets.only(top: 10.0),
-                color: Colors.black,
-                width: 12,
-                height: 40,
-                padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
-                child: Text(
-                  "10AM - " + data10,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(top: 10.0),
+            color: Colors.white,
+            width: 12,
+            height: 50,
+            padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+            child: Column(
+              children: [
+                const Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    "10AM",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 17,
+                    ),
+                  ),
+                ),
+                Text(
+                  data10,
                   style: const TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold),
-                )),
-
-            Container(
-                margin: const EdgeInsets.only(top: 10.0),
-                color: Colors.black,
-                width: 12,
-                height: 40,
-                padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
-                child: Text(
-                  "11AM - " + data11,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(top: 10.0),
+            color: Colors.white,
+            width: 12,
+            height: 50,
+            padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+            child: Column(
+              children: [
+                const Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    "11AM",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 17,
+                    ),
+                  ),
+                ),
+                Text(
+                  data11,
                   style: const TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold),
-                )),
-
-            Container(
-                margin: const EdgeInsets.only(top: 10.0),
-                color: Colors.black,
-                width: 12,
-                height: 40,
-                padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
-                child: Text(
-                  "12PM - " + data12,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(top: 10.0),
+            color: Colors.white,
+            width: 12,
+            height: 50,
+            padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+            child: Column(
+              children: [
+                const Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    "12PM",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 17,
+                    ),
+                  ),
+                ),
+                Text(
+                  data12,
                   style: const TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold),
-                )),
-
-            Container(
-                margin: const EdgeInsets.only(top: 10.0),
-                color: Colors.black,
-                width: 12,
-                height: 40,
-                padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
-                child: Text(
-                  "1PM - " + data13,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(top: 10.0),
+            color: Colors.white,
+            width: 12,
+            height: 50,
+            padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+            child: Column(
+              children: [
+                const Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    "1PM",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 17,
+                    ),
+                  ),
+                ),
+                Text(
+                  data13,
                   style: const TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold),
-                )),
-
-            Container(
-                margin: const EdgeInsets.only(top: 10.0),
-                color: Colors.black,
-                width: 12,
-                height: 40,
-                padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
-                child: Text(
-                  "2PM - " + data14,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(top: 10.0),
+            color: Colors.white,
+            width: 12,
+            height: 50,
+            padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+            child: Column(
+              children: [
+                const Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    "2PM",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 17,
+                    ),
+                  ),
+                ),
+                Text(
+                  data14,
                   style: const TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold),
-                )),
-
-            Container(
-                margin: const EdgeInsets.only(top: 10.0),
-                color: Colors.black,
-                width: 12,
-                height: 40,
-                padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
-                child: Text(
-                  "3PM - " + data15,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(top: 10.0),
+            color: Colors.white,
+            width: 12,
+            height: 50,
+            padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+            child: Column(
+              children: [
+                const Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    "3PM",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 17,
+                    ),
+                  ),
+                ),
+                Text(
+                  data15,
                   style: const TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold),
-                )),
-            Container(
-                margin: const EdgeInsets.only(top: 10.0),
-                color: Colors.black,
-                width: 12,
-                height: 40,
-                padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
-                child: Text(
-                  "4PM - " + data16,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(top: 10.0),
+            color: Colors.white,
+            width: 12,
+            height: 50,
+            padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+            child: Column(
+              children: [
+                const Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    "4PM",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 17,
+                    ),
+                  ),
+                ),
+                Text(
+                  data16,
                   style: const TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold),
-                )),
-
-            Container(
-                margin: const EdgeInsets.only(top: 10.0),
-                color: Colors.black,
-                width: 12,
-                height: 40,
-                padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
-                child: Text(
-                  "5PM - " + data17,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(top: 10.0),
+            color: Colors.white,
+            width: 12,
+            height: 50,
+            padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+            child: Column(
+              children: [
+                const Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    "5PM",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 17,
+                    ),
+                  ),
+                ),
+                Text(
+                  data17,
                   style: const TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold),
-                )),
-
-            Container(
-                margin: const EdgeInsets.only(top: 10.0),
-                color: Colors.black,
-                width: 12,
-                height: 40,
-                padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
-                child: Text(
-                  "6PM - " + data18,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(top: 10.0),
+            color: Colors.white,
+            width: 12,
+            height: 50,
+            padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+            child: Column(
+              children: [
+                const Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    "6PM",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 17,
+                    ),
+                  ),
+                ),
+                Text(
+                  data18,
                   style: const TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold),
-                )),
-
-            Container(
-                margin: const EdgeInsets.only(top: 10.0),
-                color: Colors.black,
-                width: 12,
-                height: 40,
-                padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
-                child: Text(
-                  "7PM - " + data19,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(top: 10.0),
+            color: Colors.white,
+            width: 12,
+            height: 50,
+            padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+            child: Column(
+              children: [
+                const Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    "7PM",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 17,
+                    ),
+                  ),
+                ),
+                Text(
+                  data19,
                   style: const TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold),
-                )),
-
-            Container(
-                margin: const EdgeInsets.only(top: 10.0),
-                color: Colors.black,
-                width: 12,
-                height: 40,
-                padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
-                child: Text(
-                  "8PM - " + data20,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(top: 10.0),
+            color: Colors.white,
+            width: 12,
+            height: 50,
+            padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+            child: Column(
+              children: [
+                const Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    "8PM",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 17,
+                    ),
+                  ),
+                ),
+                Text(
+                  data20,
                   style: const TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold),
-                )),
-
-            Container(
-                margin: const EdgeInsets.only(top: 10.0),
-                color: Colors.black,
-                width: 12,
-                height: 40,
-                padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
-                child: Text(
-                  "9PM - " + data21,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(top: 10.0),
+            color: Colors.white,
+            width: 12,
+            height: 50,
+            padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+            child: Column(
+              children: [
+                const Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    "9PM",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 17,
+                    ),
+                  ),
+                ),
+                Text(
+                  data21,
                   style: const TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold),
-                )),
-
-            Container(
-                margin: const EdgeInsets.only(top: 10.0),
-                color: Colors.black,
-                width: 12,
-                height: 40,
-                padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
-                child: Text(
-                  "10PM- " + data22,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(top: 10.0),
+            color: Colors.white,
+            width: 12,
+            height: 50,
+            padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+            child: Column(
+              children: [
+                const Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    "10PM",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 17,
+                    ),
+                  ),
+                ),
+                Text(
+                  data22,
                   style: const TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold),
-                )),
-
-            Container(
-                margin: const EdgeInsets.only(top: 10.0),
-                color: Colors.black,
-                width: 12,
-                height: 40,
-                padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
-                child: Text(
-                  "11PM - " + data23,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.only(top: 10.0),
+            color: Colors.white,
+            width: 12,
+            height: 50,
+            padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
+            child: Column(
+              children: [
+                const Align(
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    "11PM",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 17,
+                    ),
+                  ),
+                ),
+                Text(
+                  data23,
                   style: const TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold),
-                )),
-          ],
-          //padding: EdgeInsets.all(10),
-        ),
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            margin: EdgeInsetsDirectional.only(start: 100, end: 100),
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                primary: Color.fromRGBO(26,7,148,100),
+              ),
+              child: const Text(
+                "BACK",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
+                ),
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => smartSchedulerPage()),
+                );
+              },
+            ),
+          ),
+        ],
+        //padding: EdgeInsets.all(10),
       ),
     );
   }

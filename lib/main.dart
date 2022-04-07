@@ -81,7 +81,7 @@ class _MainPageState extends State<MainPage> {
           BottomNavigationBarItem(
             //title: Text("Trending"),
             icon: Icon(Icons.settings),
-            label: "Settings",
+            label: "Smart Scheduler",
           ),
         ],
       ),

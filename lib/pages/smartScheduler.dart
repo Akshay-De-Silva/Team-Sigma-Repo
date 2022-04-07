@@ -26,9 +26,84 @@ class settingspage extends StatefulWidget {
 }
 
 class _settingspage extends State<settingspage> {
-  var onOff = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,];
-  var brightness = ['10','10','10','10','10','10','10','10','10','10','10','10','10','10','10','10','10','10','10','10','10','10','10','10'];
-  var colorTemp = ['10','10','10','10','10','10','10','10','10','10','10','10','10','10','10','10','10','10','10','10','10','10','10','10'];
+  var onOff = [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+  ];
+  var brightness = [
+    '10',
+    '10',
+    '10',
+    '10',
+    '10',
+    '10',
+    '10',
+    '10',
+    '10',
+    '10',
+    '10',
+    '10',
+    '10',
+    '10',
+    '10',
+    '10',
+    '10',
+    '10',
+    '10',
+    '10',
+    '10',
+    '10',
+    '10',
+    '10'
+  ];
+  var colorTemp = [
+    '10',
+    '10',
+    '10',
+    '10',
+    '10',
+    '10',
+    '10',
+    '10',
+    '10',
+    '10',
+    '10',
+    '10',
+    '10',
+    '10',
+    '10',
+    '10',
+    '10',
+    '10',
+    '10',
+    '10',
+    '10',
+    '10',
+    '10',
+    '10'
+  ];
   bool isSwitched = false;
   var datasetOnOff = <int>[];
   var datasetBrightness = <int>[];
@@ -38,7 +113,7 @@ class _settingspage extends State<settingspage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "Settings",
+          "Smart Scheduler",
           style: TextStyle(
               color: Colors.black, fontWeight: FontWeight.bold, fontSize: 24),
         ),
@@ -58,11 +133,11 @@ class _settingspage extends State<settingspage> {
             },
             defaultVerticalAlignment: TableCellVerticalAlignment.middle,
             children: <TableRow>[
-              TableRow(
+              const TableRow(
                 children: <Widget>[
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: Center(child: Text("TIME")),
@@ -70,7 +145,7 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: Center(child: Text("ON/Off")),
@@ -78,7 +153,7 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: Center(child: Text("BRIGHTNESS")),
@@ -86,7 +161,7 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: Center(child: Text("COLOR TEMPERATURE")),
@@ -94,13 +169,11 @@ class _settingspage extends State<settingspage> {
                   ),
                 ],
               ),
-
-              
               TableRow(
                 children: <Widget>[
-                  TableCell(
+                  const TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: Center(child: Text("12 AM")),
@@ -108,12 +181,12 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: Switch(
                         value: onOff[0],
-                        onChanged: ((val){
+                        onChanged: ((val) {
                           setState(() {
                             onOff[0] = val;
                             print(onOff[0]);
@@ -124,7 +197,7 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       //width: 100,
                       child: DropdownButton<String>(
@@ -140,8 +213,18 @@ class _settingspage extends State<settingspage> {
                             brightness[0] = newValue!;
                           });
                         },
-                        items: <String>['10', '20', '30', '40', '50', '60', '70', '80', '90', '100']
-                            .map<DropdownMenuItem<String>>((String value) {
+                        items: <String>[
+                          '10',
+                          '20',
+                          '30',
+                          '40',
+                          '50',
+                          '60',
+                          '70',
+                          '80',
+                          '90',
+                          '100'
+                        ].map<DropdownMenuItem<String>>((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
                             child: Text(value),
@@ -152,7 +235,7 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: DropdownButton<String>(
@@ -168,8 +251,18 @@ class _settingspage extends State<settingspage> {
                             colorTemp[0] = newValue!;
                           });
                         },
-                        items: <String>['10', '20', '30', '40', '50', '60', '70', '80', '90', '100']
-                            .map<DropdownMenuItem<String>>((String value) {
+                        items: <String>[
+                          '10',
+                          '20',
+                          '30',
+                          '40',
+                          '50',
+                          '60',
+                          '70',
+                          '80',
+                          '90',
+                          '100'
+                        ].map<DropdownMenuItem<String>>((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
                             child: Text(value),
@@ -182,9 +275,9 @@ class _settingspage extends State<settingspage> {
               ),
               TableRow(
                 children: <Widget>[
-                  TableCell(
+                  const TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: Center(child: Text("1 AM")),
@@ -192,12 +285,12 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: Switch(
                         value: onOff[1],
-                        onChanged: ((val){
+                        onChanged: ((val) {
                           setState(() {
                             onOff[1] = val;
                             print(onOff[1]);
@@ -208,65 +301,77 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
-                      width: 100,
-                      child: Container(
-                        height: 32,
-                        //width: 100,
-                        child: DropdownButton<String>(
-                          value: brightness[1],
-                          elevation: 5,
-                          style: const TextStyle(color: Colors.deepPurple),
-                          underline: Container(
-                            height: 2,
-                            color: Colors.white,
-                          ),
-                          onChanged: (String? newValue) {
-                            setState(() {
-                              brightness[1] = newValue!;
-                            });
-                          },
-                          items: <String>['10', '20', '30', '40', '50', '60', '70', '80', '90', '100']
-                              .map<DropdownMenuItem<String>>((String value) {
-                            return DropdownMenuItem<String>(
-                              value: value,
-                              child: Text(value),
-                            );
-                          }).toList(),
+                      //width: 100,
+                      child: DropdownButton<String>(
+                        value: brightness[1],
+                        elevation: 5,
+                        style: const TextStyle(color: Colors.deepPurple),
+                        underline: Container(
+                          height: 2,
+                          color: Colors.white,
                         ),
+                        onChanged: (String? newValue) {
+                          setState(() {
+                            brightness[1] = newValue!;
+                          });
+                        },
+                        items: <String>[
+                          '10',
+                          '20',
+                          '30',
+                          '40',
+                          '50',
+                          '60',
+                          '70',
+                          '80',
+                          '90',
+                          '100'
+                        ].map<DropdownMenuItem<String>>((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(value),
+                          );
+                        }).toList(),
                       ),
                     ),
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
-                      child: Container(
-                        height: 32,
-                        width: 100,
-                        child: DropdownButton<String>(
-                          value: colorTemp[1],
-                          elevation: 5,
-                          style: const TextStyle(color: Colors.deepPurple),
-                          underline: Container(
-                            height: 2,
-                            color: Colors.white,
-                          ),
-                          onChanged: (String? newValue) {
-                            setState(() {
-                              colorTemp[1] = newValue!;
-                            });
-                          },
-                          items: <String>['10', '20', '30', '40', '50', '60', '70', '80', '90', '100']
-                              .map<DropdownMenuItem<String>>((String value) {
-                            return DropdownMenuItem<String>(
-                              value: value,
-                              child: Text(value),
-                            );
-                          }).toList(),
+                      child: DropdownButton<String>(
+                        value: colorTemp[1],
+                        elevation: 5,
+                        style: const TextStyle(color: Colors.deepPurple),
+                        underline: Container(
+                          height: 2,
+                          color: Colors.white,
                         ),
+                        onChanged: (String? newValue) {
+                          setState(() {
+                            colorTemp[1] = newValue!;
+                          });
+                        },
+                        items: <String>[
+                          '10',
+                          '20',
+                          '30',
+                          '40',
+                          '50',
+                          '60',
+                          '70',
+                          '80',
+                          '90',
+                          '100'
+                        ].map<DropdownMenuItem<String>>((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(value),
+                          );
+                        }).toList(),
                       ),
                     ),
                   ),
@@ -274,9 +379,9 @@ class _settingspage extends State<settingspage> {
               ),
               TableRow(
                 children: <Widget>[
-                  TableCell(
+                  const TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: Center(child: Text("2 AM")),
@@ -284,12 +389,12 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: Switch(
                         value: onOff[2],
-                        onChanged: ((val){
+                        onChanged: ((val) {
                           setState(() {
                             onOff[2] = val;
                             print(onOff[2]);
@@ -300,69 +405,77 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
-                      width: 100,
-                      child: Container(
-                        height: 32,
-                        //width: 100,
-                        child: DropdownButton<String>(
-                          value: brightness[2],
-                          elevation: 5,
-                          style: const TextStyle(color: Colors.deepPurple),
-                          underline: Container(
-                            height: 2,
-                            color: Colors.white,
-                          ),
-                          onChanged: (String? newValue) {
-                            setState(() {
-                              brightness[2] = newValue!;
-                            });
-                          },
-                          items: <String>['10', '20', '30', '40', '50', '60', '70', '80', '90', '100']
-                              .map<DropdownMenuItem<String>>((String value) {
-                            return DropdownMenuItem<String>(
-                              value: value,
-                              child: Text(value),
-                            );
-                          }).toList(),
+                      //width: 100,
+                      child: DropdownButton<String>(
+                        value: brightness[2],
+                        elevation: 5,
+                        style: const TextStyle(color: Colors.deepPurple),
+                        underline: Container(
+                          height: 2,
+                          color: Colors.white,
                         ),
+                        onChanged: (String? newValue) {
+                          setState(() {
+                            brightness[2] = newValue!;
+                          });
+                        },
+                        items: <String>[
+                          '10',
+                          '20',
+                          '30',
+                          '40',
+                          '50',
+                          '60',
+                          '70',
+                          '80',
+                          '90',
+                          '100'
+                        ].map<DropdownMenuItem<String>>((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(value),
+                          );
+                        }).toList(),
                       ),
                     ),
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
-                      child: Container(
-                        height: 32,
-                        width: 100,
-                        child: Container(
-                          height: 32,
-                          width: 100,
-                          child: DropdownButton<String>(
-                            value: colorTemp[2],
-                            elevation: 5,
-                            style: const TextStyle(color: Colors.deepPurple),
-                            underline: Container(
-                              height: 2,
-                              color: Colors.white,
-                            ),
-                            onChanged: (String? newValue) {
-                              setState(() {
-                                colorTemp[2] = newValue!;
-                              });
-                            },
-                            items: <String>['10', '20', '30', '40', '50', '60', '70', '80', '90', '100']
-                                .map<DropdownMenuItem<String>>((String value) {
-                              return DropdownMenuItem<String>(
-                                value: value,
-                                child: Text(value),
-                              );
-                            }).toList(),
-                          ),
+                      child: DropdownButton<String>(
+                        value: colorTemp[2],
+                        elevation: 5,
+                        style: const TextStyle(color: Colors.deepPurple),
+                        underline: Container(
+                          height: 2,
+                          color: Colors.white,
                         ),
+                        onChanged: (String? newValue) {
+                          setState(() {
+                            colorTemp[2] = newValue!;
+                          });
+                        },
+                        items: <String>[
+                          '10',
+                          '20',
+                          '30',
+                          '40',
+                          '50',
+                          '60',
+                          '70',
+                          '80',
+                          '90',
+                          '100'
+                        ].map<DropdownMenuItem<String>>((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(value),
+                          );
+                        }).toList(),
                       ),
                     ),
                   ),
@@ -370,9 +483,9 @@ class _settingspage extends State<settingspage> {
               ),
               TableRow(
                 children: <Widget>[
-                  TableCell(
+                  const TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: Center(child: Text("3 AM")),
@@ -380,12 +493,12 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: Switch(
                         value: onOff[3],
-                        onChanged: ((val){
+                        onChanged: ((val) {
                           setState(() {
                             onOff[3] = val;
                             print(onOff[3]);
@@ -396,7 +509,7 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: DropdownButton<String>(
@@ -412,8 +525,18 @@ class _settingspage extends State<settingspage> {
                             brightness[3] = newValue!;
                           });
                         },
-                        items: <String>['10', '20', '30', '40', '50', '60', '70', '80', '90', '100']
-                            .map<DropdownMenuItem<String>>((String value) {
+                        items: <String>[
+                          '10',
+                          '20',
+                          '30',
+                          '40',
+                          '50',
+                          '60',
+                          '70',
+                          '80',
+                          '90',
+                          '100'
+                        ].map<DropdownMenuItem<String>>((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
                             child: Text(value),
@@ -424,42 +547,49 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
-                      child: Container(
-                        height: 32,
-                        width: 100,
-                        child: DropdownButton<String>(
-                          value: colorTemp[3],
-                          elevation: 5,
-                          style: const TextStyle(color: Colors.deepPurple),
-                          underline: Container(
-                            height: 2,
-                            color: Colors.white,
-                          ),
-                          onChanged: (String? newValue) {
-                            setState(() {
-                              colorTemp[3] = newValue!;
-                            });
-                          },
-                          items: <String>['10', '20', '30', '40', '50', '60', '70', '80', '90', '100']
-                              .map<DropdownMenuItem<String>>((String value) {
-                            return DropdownMenuItem<String>(
-                              value: value,
-                              child: Text(value),
-                            );
-                          }).toList(),
+                      child: DropdownButton<String>(
+                        value: colorTemp[3],
+                        elevation: 5,
+                        style: const TextStyle(color: Colors.deepPurple),
+                        underline: Container(
+                          height: 2,
+                          color: Colors.white,
                         ),
+                        onChanged: (String? newValue) {
+                          setState(() {
+                            colorTemp[3] = newValue!;
+                          });
+                        },
+                        items: <String>[
+                          '10',
+                          '20',
+                          '30',
+                          '40',
+                          '50',
+                          '60',
+                          '70',
+                          '80',
+                          '90',
+                          '100'
+                        ].map<DropdownMenuItem<String>>((String value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(value),
+                          );
+                        }).toList(),
                       ),
                     ),
                   ),
                 ],
-              ),TableRow(
+              ),
+              TableRow(
                 children: <Widget>[
-                  TableCell(
+                  const TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: Center(child: Text("4 AM")),
@@ -467,12 +597,12 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: Switch(
                         value: onOff[4],
-                        onChanged: ((val){
+                        onChanged: ((val) {
                           setState(() {
                             onOff[4] = val;
                             print(onOff[4]);
@@ -483,7 +613,7 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: DropdownButton<String>(
@@ -499,8 +629,18 @@ class _settingspage extends State<settingspage> {
                             brightness[4] = newValue!;
                           });
                         },
-                        items: <String>['10', '20', '30', '40', '50', '60', '70', '80', '90', '100']
-                            .map<DropdownMenuItem<String>>((String value) {
+                        items: <String>[
+                          '10',
+                          '20',
+                          '30',
+                          '40',
+                          '50',
+                          '60',
+                          '70',
+                          '80',
+                          '90',
+                          '100'
+                        ].map<DropdownMenuItem<String>>((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
                             child: Text(value),
@@ -511,7 +651,7 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: DropdownButton<String>(
@@ -527,8 +667,18 @@ class _settingspage extends State<settingspage> {
                             colorTemp[4] = newValue!;
                           });
                         },
-                        items: <String>['10', '20', '30', '40', '50', '60', '70', '80', '90', '100']
-                            .map<DropdownMenuItem<String>>((String value) {
+                        items: <String>[
+                          '10',
+                          '20',
+                          '30',
+                          '40',
+                          '50',
+                          '60',
+                          '70',
+                          '80',
+                          '90',
+                          '100'
+                        ].map<DropdownMenuItem<String>>((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
                             child: Text(value),
@@ -541,9 +691,9 @@ class _settingspage extends State<settingspage> {
               ),
               TableRow(
                 children: <Widget>[
-                  TableCell(
+                  const TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: Center(child: Text("5 AM")),
@@ -551,12 +701,12 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: Switch(
                         value: onOff[5],
-                        onChanged: ((val){
+                        onChanged: ((val) {
                           setState(() {
                             onOff[5] = val;
                             print(onOff[5]);
@@ -567,7 +717,7 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: DropdownButton<String>(
@@ -583,8 +733,18 @@ class _settingspage extends State<settingspage> {
                             brightness[5] = newValue!;
                           });
                         },
-                        items: <String>['10', '20', '30', '40', '50', '60', '70', '80', '90', '100']
-                            .map<DropdownMenuItem<String>>((String value) {
+                        items: <String>[
+                          '10',
+                          '20',
+                          '30',
+                          '40',
+                          '50',
+                          '60',
+                          '70',
+                          '80',
+                          '90',
+                          '100'
+                        ].map<DropdownMenuItem<String>>((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
                             child: Text(value),
@@ -595,7 +755,7 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: DropdownButton<String>(
@@ -611,8 +771,18 @@ class _settingspage extends State<settingspage> {
                             colorTemp[5] = newValue!;
                           });
                         },
-                        items: <String>['10', '20', '30', '40', '50', '60', '70', '80', '90', '100']
-                            .map<DropdownMenuItem<String>>((String value) {
+                        items: <String>[
+                          '10',
+                          '20',
+                          '30',
+                          '40',
+                          '50',
+                          '60',
+                          '70',
+                          '80',
+                          '90',
+                          '100'
+                        ].map<DropdownMenuItem<String>>((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
                             child: Text(value),
@@ -625,9 +795,9 @@ class _settingspage extends State<settingspage> {
               ),
               TableRow(
                 children: <Widget>[
-                  TableCell(
+                  const TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: Center(child: Text("6 AM")),
@@ -635,12 +805,12 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: Switch(
                         value: onOff[6],
-                        onChanged: ((val){
+                        onChanged: ((val) {
                           setState(() {
                             onOff[6] = val;
                             print(onOff[6]);
@@ -651,7 +821,7 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: DropdownButton<String>(
@@ -667,8 +837,18 @@ class _settingspage extends State<settingspage> {
                             brightness[6] = newValue!;
                           });
                         },
-                        items: <String>['10', '20', '30', '40', '50', '60', '70', '80', '90', '100']
-                            .map<DropdownMenuItem<String>>((String value) {
+                        items: <String>[
+                          '10',
+                          '20',
+                          '30',
+                          '40',
+                          '50',
+                          '60',
+                          '70',
+                          '80',
+                          '90',
+                          '100'
+                        ].map<DropdownMenuItem<String>>((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
                             child: Text(value),
@@ -679,7 +859,7 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: DropdownButton<String>(
@@ -695,8 +875,18 @@ class _settingspage extends State<settingspage> {
                             colorTemp[6] = newValue!;
                           });
                         },
-                        items: <String>['10', '20', '30', '40', '50', '60', '70', '80', '90', '100']
-                            .map<DropdownMenuItem<String>>((String value) {
+                        items: <String>[
+                          '10',
+                          '20',
+                          '30',
+                          '40',
+                          '50',
+                          '60',
+                          '70',
+                          '80',
+                          '90',
+                          '100'
+                        ].map<DropdownMenuItem<String>>((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
                             child: Text(value),
@@ -709,9 +899,9 @@ class _settingspage extends State<settingspage> {
               ),
               TableRow(
                 children: <Widget>[
-                  TableCell(
+                  const TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: Center(child: Text("7 AM")),
@@ -719,12 +909,12 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: Switch(
                         value: onOff[7],
-                        onChanged: ((val){
+                        onChanged: ((val) {
                           setState(() {
                             onOff[7] = val;
                             print(onOff[7]);
@@ -735,7 +925,7 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: DropdownButton<String>(
@@ -751,8 +941,18 @@ class _settingspage extends State<settingspage> {
                             brightness[7] = newValue!;
                           });
                         },
-                        items: <String>['10', '20', '30', '40', '50', '60', '70', '80', '90', '100']
-                            .map<DropdownMenuItem<String>>((String value) {
+                        items: <String>[
+                          '10',
+                          '20',
+                          '30',
+                          '40',
+                          '50',
+                          '60',
+                          '70',
+                          '80',
+                          '90',
+                          '100'
+                        ].map<DropdownMenuItem<String>>((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
                             child: Text(value),
@@ -763,7 +963,7 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: DropdownButton<String>(
@@ -779,8 +979,18 @@ class _settingspage extends State<settingspage> {
                             colorTemp[7] = newValue!;
                           });
                         },
-                        items: <String>['10', '20', '30', '40', '50', '60', '70', '80', '90', '100']
-                            .map<DropdownMenuItem<String>>((String value) {
+                        items: <String>[
+                          '10',
+                          '20',
+                          '30',
+                          '40',
+                          '50',
+                          '60',
+                          '70',
+                          '80',
+                          '90',
+                          '100'
+                        ].map<DropdownMenuItem<String>>((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
                             child: Text(value),
@@ -793,9 +1003,9 @@ class _settingspage extends State<settingspage> {
               ),
               TableRow(
                 children: <Widget>[
-                  TableCell(
+                  const TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: Center(child: Text("8 AM")),
@@ -803,12 +1013,12 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: Switch(
                         value: onOff[8],
-                        onChanged: ((val){
+                        onChanged: ((val) {
                           setState(() {
                             onOff[8] = val;
                             print(onOff[8]);
@@ -819,7 +1029,7 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: DropdownButton<String>(
@@ -835,8 +1045,18 @@ class _settingspage extends State<settingspage> {
                             brightness[8] = newValue!;
                           });
                         },
-                        items: <String>['10', '20', '30', '40', '50', '60', '70', '80', '90', '100']
-                            .map<DropdownMenuItem<String>>((String value) {
+                        items: <String>[
+                          '10',
+                          '20',
+                          '30',
+                          '40',
+                          '50',
+                          '60',
+                          '70',
+                          '80',
+                          '90',
+                          '100'
+                        ].map<DropdownMenuItem<String>>((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
                             child: Text(value),
@@ -847,7 +1067,7 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: DropdownButton<String>(
@@ -863,8 +1083,18 @@ class _settingspage extends State<settingspage> {
                             colorTemp[8] = newValue!;
                           });
                         },
-                        items: <String>['10', '20', '30', '40', '50', '60', '70', '80', '90', '100']
-                            .map<DropdownMenuItem<String>>((String value) {
+                        items: <String>[
+                          '10',
+                          '20',
+                          '30',
+                          '40',
+                          '50',
+                          '60',
+                          '70',
+                          '80',
+                          '90',
+                          '100'
+                        ].map<DropdownMenuItem<String>>((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
                             child: Text(value),
@@ -877,9 +1107,9 @@ class _settingspage extends State<settingspage> {
               ),
               TableRow(
                 children: <Widget>[
-                  TableCell(
+                  const TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: Center(child: Text("9 AM")),
@@ -887,12 +1117,12 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: Switch(
                         value: onOff[9],
-                        onChanged: ((val){
+                        onChanged: ((val) {
                           setState(() {
                             onOff[9] = val;
                             print(onOff[9]);
@@ -903,7 +1133,7 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: DropdownButton<String>(
@@ -919,8 +1149,18 @@ class _settingspage extends State<settingspage> {
                             brightness[9] = newValue!;
                           });
                         },
-                        items: <String>['10', '20', '30', '40', '50', '60', '70', '80', '90', '100']
-                            .map<DropdownMenuItem<String>>((String value) {
+                        items: <String>[
+                          '10',
+                          '20',
+                          '30',
+                          '40',
+                          '50',
+                          '60',
+                          '70',
+                          '80',
+                          '90',
+                          '100'
+                        ].map<DropdownMenuItem<String>>((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
                             child: Text(value),
@@ -931,7 +1171,7 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: DropdownButton<String>(
@@ -947,8 +1187,18 @@ class _settingspage extends State<settingspage> {
                             colorTemp[9] = newValue!;
                           });
                         },
-                        items: <String>['10', '20', '30', '40', '50', '60', '70', '80', '90', '100']
-                            .map<DropdownMenuItem<String>>((String value) {
+                        items: <String>[
+                          '10',
+                          '20',
+                          '30',
+                          '40',
+                          '50',
+                          '60',
+                          '70',
+                          '80',
+                          '90',
+                          '100'
+                        ].map<DropdownMenuItem<String>>((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
                             child: Text(value),
@@ -961,9 +1211,9 @@ class _settingspage extends State<settingspage> {
               ),
               TableRow(
                 children: <Widget>[
-                  TableCell(
+                  const TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: Center(child: Text("10 AM")),
@@ -971,12 +1221,12 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: Switch(
                         value: onOff[10],
-                        onChanged: ((val){
+                        onChanged: ((val) {
                           setState(() {
                             onOff[10] = val;
                             print(onOff[10]);
@@ -987,7 +1237,7 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: DropdownButton<String>(
@@ -1003,8 +1253,18 @@ class _settingspage extends State<settingspage> {
                             brightness[10] = newValue!;
                           });
                         },
-                        items: <String>['10', '20', '30', '40', '50', '60', '70', '80', '90', '100']
-                            .map<DropdownMenuItem<String>>((String value) {
+                        items: <String>[
+                          '10',
+                          '20',
+                          '30',
+                          '40',
+                          '50',
+                          '60',
+                          '70',
+                          '80',
+                          '90',
+                          '100'
+                        ].map<DropdownMenuItem<String>>((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
                             child: Text(value),
@@ -1015,7 +1275,7 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: DropdownButton<String>(
@@ -1031,8 +1291,18 @@ class _settingspage extends State<settingspage> {
                             colorTemp[10] = newValue!;
                           });
                         },
-                        items: <String>['10', '20', '30', '40', '50', '60', '70', '80', '90', '100']
-                            .map<DropdownMenuItem<String>>((String value) {
+                        items: <String>[
+                          '10',
+                          '20',
+                          '30',
+                          '40',
+                          '50',
+                          '60',
+                          '70',
+                          '80',
+                          '90',
+                          '100'
+                        ].map<DropdownMenuItem<String>>((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
                             child: Text(value),
@@ -1045,9 +1315,9 @@ class _settingspage extends State<settingspage> {
               ),
               TableRow(
                 children: <Widget>[
-                  TableCell(
+                  const TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: Center(child: Text("11 AM")),
@@ -1055,12 +1325,12 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: Switch(
                         value: onOff[11],
-                        onChanged: ((val){
+                        onChanged: ((val) {
                           setState(() {
                             onOff[11] = val;
                             print(onOff[11]);
@@ -1071,7 +1341,7 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: DropdownButton<String>(
@@ -1087,8 +1357,18 @@ class _settingspage extends State<settingspage> {
                             brightness[11] = newValue!;
                           });
                         },
-                        items: <String>['10', '20', '30', '40', '50', '60', '70', '80', '90', '100']
-                            .map<DropdownMenuItem<String>>((String value) {
+                        items: <String>[
+                          '10',
+                          '20',
+                          '30',
+                          '40',
+                          '50',
+                          '60',
+                          '70',
+                          '80',
+                          '90',
+                          '100'
+                        ].map<DropdownMenuItem<String>>((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
                             child: Text(value),
@@ -1099,7 +1379,7 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: DropdownButton<String>(
@@ -1115,8 +1395,18 @@ class _settingspage extends State<settingspage> {
                             colorTemp[11] = newValue!;
                           });
                         },
-                        items: <String>['10', '20', '30', '40', '50', '60', '70', '80', '90', '100']
-                            .map<DropdownMenuItem<String>>((String value) {
+                        items: <String>[
+                          '10',
+                          '20',
+                          '30',
+                          '40',
+                          '50',
+                          '60',
+                          '70',
+                          '80',
+                          '90',
+                          '100'
+                        ].map<DropdownMenuItem<String>>((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
                             child: Text(value),
@@ -1129,9 +1419,9 @@ class _settingspage extends State<settingspage> {
               ),
               TableRow(
                 children: <Widget>[
-                  TableCell(
+                  const TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: Center(child: Text("12 PM")),
@@ -1139,12 +1429,12 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: Switch(
                         value: onOff[12],
-                        onChanged: ((val){
+                        onChanged: ((val) {
                           setState(() {
                             onOff[12] = val;
                             print(onOff[12]);
@@ -1155,7 +1445,7 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: DropdownButton<String>(
@@ -1171,8 +1461,18 @@ class _settingspage extends State<settingspage> {
                             brightness[12] = newValue!;
                           });
                         },
-                        items: <String>['10', '20', '30', '40', '50', '60', '70', '80', '90', '100']
-                            .map<DropdownMenuItem<String>>((String value) {
+                        items: <String>[
+                          '10',
+                          '20',
+                          '30',
+                          '40',
+                          '50',
+                          '60',
+                          '70',
+                          '80',
+                          '90',
+                          '100'
+                        ].map<DropdownMenuItem<String>>((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
                             child: Text(value),
@@ -1183,7 +1483,7 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: DropdownButton<String>(
@@ -1199,8 +1499,18 @@ class _settingspage extends State<settingspage> {
                             colorTemp[12] = newValue!;
                           });
                         },
-                        items: <String>['10', '20', '30', '40', '50', '60', '70', '80', '90', '100']
-                            .map<DropdownMenuItem<String>>((String value) {
+                        items: <String>[
+                          '10',
+                          '20',
+                          '30',
+                          '40',
+                          '50',
+                          '60',
+                          '70',
+                          '80',
+                          '90',
+                          '100'
+                        ].map<DropdownMenuItem<String>>((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
                             child: Text(value),
@@ -1213,9 +1523,9 @@ class _settingspage extends State<settingspage> {
               ),
               TableRow(
                 children: <Widget>[
-                  TableCell(
+                  const TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: Center(child: Text("1 PM")),
@@ -1223,12 +1533,12 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: Switch(
                         value: onOff[13],
-                        onChanged: ((val){
+                        onChanged: ((val) {
                           setState(() {
                             onOff[13] = val;
                             print(onOff[13]);
@@ -1239,7 +1549,7 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: DropdownButton<String>(
@@ -1255,8 +1565,18 @@ class _settingspage extends State<settingspage> {
                             brightness[13] = newValue!;
                           });
                         },
-                        items: <String>['10', '20', '30', '40', '50', '60', '70', '80', '90', '100']
-                            .map<DropdownMenuItem<String>>((String value) {
+                        items: <String>[
+                          '10',
+                          '20',
+                          '30',
+                          '40',
+                          '50',
+                          '60',
+                          '70',
+                          '80',
+                          '90',
+                          '100'
+                        ].map<DropdownMenuItem<String>>((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
                             child: Text(value),
@@ -1267,7 +1587,7 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: DropdownButton<String>(
@@ -1283,8 +1603,18 @@ class _settingspage extends State<settingspage> {
                             colorTemp[13] = newValue!;
                           });
                         },
-                        items: <String>['10', '20', '30', '40', '50', '60', '70', '80', '90', '100']
-                            .map<DropdownMenuItem<String>>((String value) {
+                        items: <String>[
+                          '10',
+                          '20',
+                          '30',
+                          '40',
+                          '50',
+                          '60',
+                          '70',
+                          '80',
+                          '90',
+                          '100'
+                        ].map<DropdownMenuItem<String>>((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
                             child: Text(value),
@@ -1297,9 +1627,9 @@ class _settingspage extends State<settingspage> {
               ),
               TableRow(
                 children: <Widget>[
-                  TableCell(
+                  const TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: Center(child: Text("2 PM")),
@@ -1307,12 +1637,12 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: Switch(
                         value: onOff[14],
-                        onChanged: ((val){
+                        onChanged: ((val) {
                           setState(() {
                             onOff[14] = val;
                             print(onOff[14]);
@@ -1323,7 +1653,7 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: DropdownButton<String>(
@@ -1339,8 +1669,18 @@ class _settingspage extends State<settingspage> {
                             brightness[14] = newValue!;
                           });
                         },
-                        items: <String>['10', '20', '30', '40', '50', '60', '70', '80', '90', '100']
-                            .map<DropdownMenuItem<String>>((String value) {
+                        items: <String>[
+                          '10',
+                          '20',
+                          '30',
+                          '40',
+                          '50',
+                          '60',
+                          '70',
+                          '80',
+                          '90',
+                          '100'
+                        ].map<DropdownMenuItem<String>>((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
                             child: Text(value),
@@ -1351,7 +1691,7 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: DropdownButton<String>(
@@ -1367,8 +1707,18 @@ class _settingspage extends State<settingspage> {
                             colorTemp[14] = newValue!;
                           });
                         },
-                        items: <String>['10', '20', '30', '40', '50', '60', '70', '80', '90', '100']
-                            .map<DropdownMenuItem<String>>((String value) {
+                        items: <String>[
+                          '10',
+                          '20',
+                          '30',
+                          '40',
+                          '50',
+                          '60',
+                          '70',
+                          '80',
+                          '90',
+                          '100'
+                        ].map<DropdownMenuItem<String>>((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
                             child: Text(value),
@@ -1381,9 +1731,9 @@ class _settingspage extends State<settingspage> {
               ),
               TableRow(
                 children: <Widget>[
-                  TableCell(
+                  const TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: Center(child: Text("3 PM")),
@@ -1396,7 +1746,7 @@ class _settingspage extends State<settingspage> {
                       width: 100,
                       child: Switch(
                         value: onOff[15],
-                        onChanged: ((val){
+                        onChanged: ((val) {
                           setState(() {
                             onOff[15] = val;
                             print(onOff[15]);
@@ -1407,7 +1757,7 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: DropdownButton<String>(
@@ -1423,8 +1773,18 @@ class _settingspage extends State<settingspage> {
                             brightness[15] = newValue!;
                           });
                         },
-                        items: <String>['10', '20', '30', '40', '50', '60', '70', '80', '90', '100']
-                            .map<DropdownMenuItem<String>>((String value) {
+                        items: <String>[
+                          '10',
+                          '20',
+                          '30',
+                          '40',
+                          '50',
+                          '60',
+                          '70',
+                          '80',
+                          '90',
+                          '100'
+                        ].map<DropdownMenuItem<String>>((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
                             child: Text(value),
@@ -1435,7 +1795,7 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: DropdownButton<String>(
@@ -1451,8 +1811,18 @@ class _settingspage extends State<settingspage> {
                             colorTemp[15] = newValue!;
                           });
                         },
-                        items: <String>['10', '20', '30', '40', '50', '60', '70', '80', '90', '100']
-                            .map<DropdownMenuItem<String>>((String value) {
+                        items: <String>[
+                          '10',
+                          '20',
+                          '30',
+                          '40',
+                          '50',
+                          '60',
+                          '70',
+                          '80',
+                          '90',
+                          '100'
+                        ].map<DropdownMenuItem<String>>((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
                             child: Text(value),
@@ -1465,9 +1835,9 @@ class _settingspage extends State<settingspage> {
               ),
               TableRow(
                 children: <Widget>[
-                  TableCell(
+                  const TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: Center(child: Text("4 PM")),
@@ -1475,12 +1845,12 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: Switch(
                         value: onOff[16],
-                        onChanged: ((val){
+                        onChanged: ((val) {
                           setState(() {
                             onOff[16] = val;
                             print(onOff[16]);
@@ -1491,7 +1861,7 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: DropdownButton<String>(
@@ -1507,8 +1877,18 @@ class _settingspage extends State<settingspage> {
                             brightness[16] = newValue!;
                           });
                         },
-                        items: <String>['10', '20', '30', '40', '50', '60', '70', '80', '90', '100']
-                            .map<DropdownMenuItem<String>>((String value) {
+                        items: <String>[
+                          '10',
+                          '20',
+                          '30',
+                          '40',
+                          '50',
+                          '60',
+                          '70',
+                          '80',
+                          '90',
+                          '100'
+                        ].map<DropdownMenuItem<String>>((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
                             child: Text(value),
@@ -1519,7 +1899,7 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: DropdownButton<String>(
@@ -1535,8 +1915,18 @@ class _settingspage extends State<settingspage> {
                             colorTemp[16] = newValue!;
                           });
                         },
-                        items: <String>['10', '20', '30', '40', '50', '60', '70', '80', '90', '100']
-                            .map<DropdownMenuItem<String>>((String value) {
+                        items: <String>[
+                          '10',
+                          '20',
+                          '30',
+                          '40',
+                          '50',
+                          '60',
+                          '70',
+                          '80',
+                          '90',
+                          '100'
+                        ].map<DropdownMenuItem<String>>((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
                             child: Text(value),
@@ -1549,9 +1939,9 @@ class _settingspage extends State<settingspage> {
               ),
               TableRow(
                 children: <Widget>[
-                  TableCell(
+                  const TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: Center(child: Text("5 PM")),
@@ -1559,12 +1949,12 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: Switch(
                         value: onOff[17],
-                        onChanged: ((val){
+                        onChanged: ((val) {
                           setState(() {
                             onOff[17] = val;
                             print(onOff[17]);
@@ -1575,7 +1965,7 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: DropdownButton<String>(
@@ -1591,8 +1981,18 @@ class _settingspage extends State<settingspage> {
                             brightness[17] = newValue!;
                           });
                         },
-                        items: <String>['10', '20', '30', '40', '50', '60', '70', '80', '90', '100']
-                            .map<DropdownMenuItem<String>>((String value) {
+                        items: <String>[
+                          '10',
+                          '20',
+                          '30',
+                          '40',
+                          '50',
+                          '60',
+                          '70',
+                          '80',
+                          '90',
+                          '100'
+                        ].map<DropdownMenuItem<String>>((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
                             child: Text(value),
@@ -1603,7 +2003,7 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: DropdownButton<String>(
@@ -1619,8 +2019,18 @@ class _settingspage extends State<settingspage> {
                             colorTemp[17] = newValue!;
                           });
                         },
-                        items: <String>['10', '20', '30', '40', '50', '60', '70', '80', '90', '100']
-                            .map<DropdownMenuItem<String>>((String value) {
+                        items: <String>[
+                          '10',
+                          '20',
+                          '30',
+                          '40',
+                          '50',
+                          '60',
+                          '70',
+                          '80',
+                          '90',
+                          '100'
+                        ].map<DropdownMenuItem<String>>((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
                             child: Text(value),
@@ -1633,9 +2043,9 @@ class _settingspage extends State<settingspage> {
               ),
               TableRow(
                 children: <Widget>[
-                  TableCell(
+                  const TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: Center(child: Text("6 PM")),
@@ -1643,12 +2053,12 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: Switch(
                         value: onOff[18],
-                        onChanged: ((val){
+                        onChanged: ((val) {
                           setState(() {
                             onOff[18] = val;
                             print(onOff[18]);
@@ -1659,7 +2069,7 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: DropdownButton<String>(
@@ -1675,8 +2085,18 @@ class _settingspage extends State<settingspage> {
                             brightness[18] = newValue!;
                           });
                         },
-                        items: <String>['10', '20', '30', '40', '50', '60', '70', '80', '90', '100']
-                            .map<DropdownMenuItem<String>>((String value) {
+                        items: <String>[
+                          '10',
+                          '20',
+                          '30',
+                          '40',
+                          '50',
+                          '60',
+                          '70',
+                          '80',
+                          '90',
+                          '100'
+                        ].map<DropdownMenuItem<String>>((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
                             child: Text(value),
@@ -1687,7 +2107,7 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: DropdownButton<String>(
@@ -1703,8 +2123,18 @@ class _settingspage extends State<settingspage> {
                             colorTemp[18] = newValue!;
                           });
                         },
-                        items: <String>['10', '20', '30', '40', '50', '60', '70', '80', '90', '100']
-                            .map<DropdownMenuItem<String>>((String value) {
+                        items: <String>[
+                          '10',
+                          '20',
+                          '30',
+                          '40',
+                          '50',
+                          '60',
+                          '70',
+                          '80',
+                          '90',
+                          '100'
+                        ].map<DropdownMenuItem<String>>((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
                             child: Text(value),
@@ -1717,9 +2147,9 @@ class _settingspage extends State<settingspage> {
               ),
               TableRow(
                 children: <Widget>[
-                  TableCell(
+                  const TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: Center(child: Text("7 PM")),
@@ -1732,7 +2162,7 @@ class _settingspage extends State<settingspage> {
                       width: 100,
                       child: Switch(
                         value: onOff[19],
-                        onChanged: ((val){
+                        onChanged: ((val) {
                           setState(() {
                             onOff[19] = val;
                             print(onOff[19]);
@@ -1743,7 +2173,7 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: DropdownButton<String>(
@@ -1759,8 +2189,18 @@ class _settingspage extends State<settingspage> {
                             brightness[19] = newValue!;
                           });
                         },
-                        items: <String>['10', '20', '30', '40', '50', '60', '70', '80', '90', '100']
-                            .map<DropdownMenuItem<String>>((String value) {
+                        items: <String>[
+                          '10',
+                          '20',
+                          '30',
+                          '40',
+                          '50',
+                          '60',
+                          '70',
+                          '80',
+                          '90',
+                          '100'
+                        ].map<DropdownMenuItem<String>>((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
                             child: Text(value),
@@ -1771,7 +2211,7 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: DropdownButton<String>(
@@ -1787,8 +2227,18 @@ class _settingspage extends State<settingspage> {
                             colorTemp[19] = newValue!;
                           });
                         },
-                        items: <String>['10', '20', '30', '40', '50', '60', '70', '80', '90', '100']
-                            .map<DropdownMenuItem<String>>((String value) {
+                        items: <String>[
+                          '10',
+                          '20',
+                          '30',
+                          '40',
+                          '50',
+                          '60',
+                          '70',
+                          '80',
+                          '90',
+                          '100'
+                        ].map<DropdownMenuItem<String>>((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
                             child: Text(value),
@@ -1801,9 +2251,9 @@ class _settingspage extends State<settingspage> {
               ),
               TableRow(
                 children: <Widget>[
-                  TableCell(
+                  const TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: Center(child: Text("8 PM")),
@@ -1811,12 +2261,12 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: Switch(
                         value: onOff[20],
-                        onChanged: ((val){
+                        onChanged: ((val) {
                           setState(() {
                             onOff[20] = val;
                             print(onOff[20]);
@@ -1827,7 +2277,7 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: DropdownButton<String>(
@@ -1843,8 +2293,18 @@ class _settingspage extends State<settingspage> {
                             brightness[20] = newValue!;
                           });
                         },
-                        items: <String>['10', '20', '30', '40', '50', '60', '70', '80', '90', '100']
-                            .map<DropdownMenuItem<String>>((String value) {
+                        items: <String>[
+                          '10',
+                          '20',
+                          '30',
+                          '40',
+                          '50',
+                          '60',
+                          '70',
+                          '80',
+                          '90',
+                          '100'
+                        ].map<DropdownMenuItem<String>>((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
                             child: Text(value),
@@ -1855,7 +2315,7 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: DropdownButton<String>(
@@ -1871,8 +2331,18 @@ class _settingspage extends State<settingspage> {
                             colorTemp[20] = newValue!;
                           });
                         },
-                        items: <String>['10', '20', '30', '40', '50', '60', '70', '80', '90', '100']
-                            .map<DropdownMenuItem<String>>((String value) {
+                        items: <String>[
+                          '10',
+                          '20',
+                          '30',
+                          '40',
+                          '50',
+                          '60',
+                          '70',
+                          '80',
+                          '90',
+                          '100'
+                        ].map<DropdownMenuItem<String>>((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
                             child: Text(value),
@@ -1885,9 +2355,9 @@ class _settingspage extends State<settingspage> {
               ),
               TableRow(
                 children: <Widget>[
-                  TableCell(
+                  const TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: Center(child: Text("9 PM")),
@@ -1895,12 +2365,12 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: Switch(
                         value: onOff[21],
-                        onChanged: ((val){
+                        onChanged: ((val) {
                           setState(() {
                             onOff[21] = val;
                             print(onOff[21]);
@@ -1911,7 +2381,7 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: DropdownButton<String>(
@@ -1927,8 +2397,18 @@ class _settingspage extends State<settingspage> {
                             brightness[21] = newValue!;
                           });
                         },
-                        items: <String>['10', '20', '30', '40', '50', '60', '70', '80', '90', '100']
-                            .map<DropdownMenuItem<String>>((String value) {
+                        items: <String>[
+                          '10',
+                          '20',
+                          '30',
+                          '40',
+                          '50',
+                          '60',
+                          '70',
+                          '80',
+                          '90',
+                          '100'
+                        ].map<DropdownMenuItem<String>>((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
                             child: Text(value),
@@ -1939,7 +2419,7 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: DropdownButton<String>(
@@ -1955,8 +2435,18 @@ class _settingspage extends State<settingspage> {
                             colorTemp[21] = newValue!;
                           });
                         },
-                        items: <String>['10', '20', '30', '40', '50', '60', '70', '80', '90', '100']
-                            .map<DropdownMenuItem<String>>((String value) {
+                        items: <String>[
+                          '10',
+                          '20',
+                          '30',
+                          '40',
+                          '50',
+                          '60',
+                          '70',
+                          '80',
+                          '90',
+                          '100'
+                        ].map<DropdownMenuItem<String>>((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
                             child: Text(value),
@@ -1969,9 +2459,9 @@ class _settingspage extends State<settingspage> {
               ),
               TableRow(
                 children: <Widget>[
-                  TableCell(
+                  const TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: Center(child: Text("10 PM")),
@@ -1979,12 +2469,12 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: Switch(
                         value: onOff[22],
-                        onChanged: ((val){
+                        onChanged: ((val) {
                           setState(() {
                             onOff[22] = val;
                             print(onOff[22]);
@@ -1995,7 +2485,7 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: DropdownButton<String>(
@@ -2011,8 +2501,18 @@ class _settingspage extends State<settingspage> {
                             brightness[22] = newValue!;
                           });
                         },
-                        items: <String>['10', '20', '30', '40', '50', '60', '70', '80', '90', '100']
-                            .map<DropdownMenuItem<String>>((String value) {
+                        items: <String>[
+                          '10',
+                          '20',
+                          '30',
+                          '40',
+                          '50',
+                          '60',
+                          '70',
+                          '80',
+                          '90',
+                          '100'
+                        ].map<DropdownMenuItem<String>>((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
                             child: Text(value),
@@ -2023,7 +2523,7 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: DropdownButton<String>(
@@ -2039,8 +2539,18 @@ class _settingspage extends State<settingspage> {
                             colorTemp[22] = newValue!;
                           });
                         },
-                        items: <String>['10', '20', '30', '40', '50', '60', '70', '80', '90', '100']
-                            .map<DropdownMenuItem<String>>((String value) {
+                        items: <String>[
+                          '10',
+                          '20',
+                          '30',
+                          '40',
+                          '50',
+                          '60',
+                          '70',
+                          '80',
+                          '90',
+                          '100'
+                        ].map<DropdownMenuItem<String>>((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
                             child: Text(value),
@@ -2053,9 +2563,9 @@ class _settingspage extends State<settingspage> {
               ),
               TableRow(
                 children: <Widget>[
-                  TableCell(
+                  const TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: Center(child: Text("11 PM")),
@@ -2063,12 +2573,12 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: Switch(
                         value: onOff[23],
-                        onChanged: ((val){
+                        onChanged: ((val) {
                           setState(() {
                             onOff[23] = val;
                             print(onOff[23]);
@@ -2079,7 +2589,7 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: DropdownButton<String>(
@@ -2095,8 +2605,18 @@ class _settingspage extends State<settingspage> {
                             brightness[23] = newValue!;
                           });
                         },
-                        items: <String>['10', '20', '30', '40', '50', '60', '70', '80', '90', '100']
-                            .map<DropdownMenuItem<String>>((String value) {
+                        items: <String>[
+                          '10',
+                          '20',
+                          '30',
+                          '40',
+                          '50',
+                          '60',
+                          '70',
+                          '80',
+                          '90',
+                          '100'
+                        ].map<DropdownMenuItem<String>>((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
                             child: Text(value),
@@ -2107,7 +2627,7 @@ class _settingspage extends State<settingspage> {
                   ),
                   TableCell(
                     //verticalAlignment: TableCellVerticalAlignment.top,
-                    child: Container(
+                    child: SizedBox(
                       height: 32,
                       width: 100,
                       child: DropdownButton<String>(
@@ -2123,8 +2643,18 @@ class _settingspage extends State<settingspage> {
                             colorTemp[23] = newValue!;
                           });
                         },
-                        items: <String>['10', '20', '30', '40', '50', '60', '70', '80', '90', '100']
-                            .map<DropdownMenuItem<String>>((String value) {
+                        items: <String>[
+                          '10',
+                          '20',
+                          '30',
+                          '40',
+                          '50',
+                          '60',
+                          '70',
+                          '80',
+                          '90',
+                          '100'
+                        ].map<DropdownMenuItem<String>>((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
                             child: Text(value),
@@ -2135,111 +2665,112 @@ class _settingspage extends State<settingspage> {
                   ),
                 ],
               ),
-
             ],
           ),
           Container(
-            child: Switch(
-              value: isSwitched,
-              onChanged: ((val){
-                setState(() {
-                  isSwitched=val;
-                });
-                  datasetOnOff.clear();
-                  datasetBrightness.clear();
-                  datasetColorTemp.clear();
-                  if(isSwitched==true) {
-                    for (var i in onOff) {
-                      if (i == true) {
-                        datasetOnOff.add(1);
-                      } else {
-                        datasetOnOff.add(0);
+            color: Colors.blue,
+            child: Row(
+              children: [
+                const Text(
+                  "Display Prediction Page",
+                  style: TextStyle(
+                    fontSize: 20,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 50.0),
+                  child: Switch(
+                    activeColor: Colors.amberAccent,
+                    value: isSwitched,
+                    onChanged: ((val) {
+                      setState(() {
+                        isSwitched = val;
+                      });
+                      datasetOnOff.clear();
+                      datasetBrightness.clear();
+                      datasetColorTemp.clear();
+                      if (isSwitched == true) {
+                        for (var i in onOff) {
+                          if (i == true) {
+                            datasetOnOff.add(1);
+                          } else {
+                            datasetOnOff.add(0);
+                          }
+                        }
+                        for (var i in brightness) {
+                          if (i == '10') {
+                            datasetBrightness.add(1);
+                          } else if (i == '20') {
+                            datasetBrightness.add(2);
+                          } else if (i == '30') {
+                            datasetBrightness.add(3);
+                          } else if (i == '40') {
+                            datasetBrightness.add(4);
+                          } else if (i == '50') {
+                            datasetBrightness.add(5);
+                          } else if (i == '60') {
+                            datasetBrightness.add(6);
+                          } else if (i == '70') {
+                            datasetBrightness.add(7);
+                          } else if (i == '80') {
+                            datasetBrightness.add(8);
+                          } else if (i == '90') {
+                            datasetBrightness.add(9);
+                          } else if (i == '100') {
+                            datasetBrightness.add(10);
+                          }
+                        }
+                        for (var i in colorTemp) {
+                          if (i == '10') {
+                            datasetColorTemp.add(1);
+                          } else if (i == '20') {
+                            datasetColorTemp.add(2);
+                          } else if (i == '30') {
+                            datasetColorTemp.add(3);
+                          } else if (i == '40') {
+                            datasetColorTemp.add(4);
+                          } else if (i == '50') {
+                            datasetColorTemp.add(5);
+                          } else if (i == '60') {
+                            datasetColorTemp.add(6);
+                          } else if (i == '70') {
+                            datasetColorTemp.add(7);
+                          } else if (i == '80') {
+                            datasetColorTemp.add(8);
+                          } else if (i == '90') {
+                            datasetColorTemp.add(9);
+                          } else if (i == '100') {
+                            datasetColorTemp.add(10);
+                          }
+                        }
                       }
-                    }
-                    for (var i in brightness) {
-                      if (i == '10') {
-                        datasetBrightness.add(1);
-                      } else if (i == '20') {
-                        datasetBrightness.add(2);
-                      } else if (i == '30') {
-                        datasetBrightness.add(3);
-                      } else if (i == '40') {
-                        datasetBrightness.add(4);
-                      } else if (i == '50') {
-                        datasetBrightness.add(5);
-                      } else if (i == '60') {
-                        datasetBrightness.add(6);
-                      } else if (i == '70') {
-                        datasetBrightness.add(7);
-                      } else if (i == '80') {
-                        datasetBrightness.add(8);
-                      } else if (i == '90') {
-                        datasetBrightness.add(9);
-                      } else if (i == '100') {
-                        datasetBrightness.add(10);
+                      json.add({
+                        "Time": 12,
+                        "OnOff": datasetOnOff[0],
+                        "Brightness": datasetBrightness[0],
+                        "ColorTemp": datasetColorTemp[0]
+                      });
+                      for (var i = 1; i < 24; i++) {
+                        json.add({
+                          "Time": i,
+                          "OnOff": datasetOnOff[i],
+                          "Brightness": datasetBrightness[i],
+                          "ColorTemp": datasetColorTemp[i]
+                        });
                       }
-                    }
-                    for (var i in colorTemp) {
-                      if (i == '10') {
-                        datasetColorTemp.add(1);
-                      } else if (i == '20') {
-                        datasetColorTemp.add(2);
-                      } else if (i == '30') {
-                        datasetColorTemp.add(3);
-                      } else if (i == '40') {
-                        datasetColorTemp.add(4);
-                      } else if (i == '50') {
-                        datasetColorTemp.add(5);
-                      } else if (i == '60') {
-                        datasetColorTemp.add(6);
-                      } else if (i == '70') {
-                        datasetColorTemp.add(7);
-                      } else if (i == '80') {
-                        datasetColorTemp.add(8);
-                      } else if (i == '90') {
-                        datasetColorTemp.add(9);
-                      } else if (i == '100') {
-                        datasetColorTemp.add(10);
-                      }
-                    }
-                  }
-                  json.add({
-                    "Time": 12,
-                    "OnOff": datasetOnOff[0],
-                    "Brightness": datasetBrightness[0],
-                    "ColorTemp": datasetColorTemp[0]
-                  });
-                /*json.add({
-                  "Time": 1,
-                  "OnOff": datasetOnOff[1],
-                  "Brightness": datasetBrightness[1],
-                  "ColorTemp": datasetColorTemp[1]
-                });
-                json.add({
-                  "Time": 2,
-                  "OnOff": datasetOnOff[2],
-                  "Brightness": datasetBrightness[2],
-                  "ColorTemp": datasetColorTemp[2]
-                });*/
-                for(var i=1; i<24; i++){
-                  json.add({
-                    "Time": i,
-                    "OnOff": datasetOnOff[i],
-                    "Brightness": datasetBrightness[i],
-                    "ColorTemp": datasetColorTemp[i]
-                  });
-                }
-                  print(json);
-                  print(json.last);
-                  print(datasetOnOff);
-                  print(datasetBrightness);
-                  print(datasetColorTemp);
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const Prediction()),
-                );
-
-              }),
+                      print(json);
+                      print(json.last);
+                      print(datasetOnOff);
+                      print(datasetBrightness);
+                      print(datasetColorTemp);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const Prediction()),
+                      );
+                    }),
+                  ),
+                ),
+              ],
             ),
           )
         ],
