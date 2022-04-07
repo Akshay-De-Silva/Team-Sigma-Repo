@@ -2707,6 +2707,7 @@ class _settingspage extends State<settingspage> {
                         context,
                         MaterialPageRoute(builder: (context) => const Prediction()),
                         );
+                        isSwitched=false;
                       }
                     }),
                   ),
