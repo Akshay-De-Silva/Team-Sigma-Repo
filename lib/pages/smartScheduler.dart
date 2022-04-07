@@ -26,84 +26,9 @@ class settingspage extends StatefulWidget {
 }
 
 class _settingspage extends State<settingspage> {
-  var onOff = [
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-  ];
-  var brightness = [
-    '10',
-    '10',
-    '10',
-    '10',
-    '10',
-    '10',
-    '10',
-    '10',
-    '10',
-    '10',
-    '10',
-    '10',
-    '10',
-    '10',
-    '10',
-    '10',
-    '10',
-    '10',
-    '10',
-    '10',
-    '10',
-    '10',
-    '10',
-    '10'
-  ];
-  var colorTemp = [
-    '10',
-    '10',
-    '10',
-    '10',
-    '10',
-    '10',
-    '10',
-    '10',
-    '10',
-    '10',
-    '10',
-    '10',
-    '10',
-    '10',
-    '10',
-    '10',
-    '10',
-    '10',
-    '10',
-    '10',
-    '10',
-    '10',
-    '10',
-    '10'
-  ];
+  var onOff = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,];
+  var brightness = ['10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10'];
+  var colorTemp = ['10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10'];
   bool isSwitched = false;
   var datasetOnOff = <int>[];
   var datasetBrightness = <int>[];

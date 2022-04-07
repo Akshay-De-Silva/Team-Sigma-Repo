@@ -51,12 +51,11 @@ class _schedulerpage extends State<schedulerpage> {
         centerTitle: true,
       ),
       body: Container(
+        decoration: BoxDecoration(
+          color: Colors.blue,
+        ),
         alignment: Alignment.topCenter,
         padding: const EdgeInsets.all(20),
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage("images/background.jpg"), fit: BoxFit.cover),
-        ),
         child: Column(
           children: [
             Column(

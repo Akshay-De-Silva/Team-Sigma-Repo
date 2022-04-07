@@ -43,11 +43,11 @@ class _MyHomePageState extends State<MyHomePage> {
         centerTitle: true,
       ),
       body: Container(
+        decoration: BoxDecoration(
+          color: Colors.blue,
+        ),
         alignment: Alignment.topCenter,
         padding: const EdgeInsets.all(20),
-        decoration: const BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage("images/background.jpg"), fit: BoxFit.cover)),
         child: Column(
           // mainAxisAlignment: MainAxisAlignment.topCenter,
           children: <Widget>[

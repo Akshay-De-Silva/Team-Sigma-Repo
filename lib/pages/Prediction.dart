@@ -232,7 +232,7 @@ class _PredictionPageState extends State<PredictionPage> {
             margin: const EdgeInsets.only(top: 10.0),
             color: Colors.white,
             width: 12,
-            height: 50,
+            height: 65,
             padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
             child: Column(
               children: [
@@ -262,7 +262,7 @@ class _PredictionPageState extends State<PredictionPage> {
             margin: const EdgeInsets.only(top: 10.0),
             color: Colors.white,
             width: 12,
-            height: 50,
+            height: 65,
             padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
             child: Column(
               children: [
@@ -292,7 +292,7 @@ class _PredictionPageState extends State<PredictionPage> {
             margin: const EdgeInsets.only(top: 10.0),
             color: Colors.white,
             width: 12,
-            height: 50,
+            height: 65,
             padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
             child: Column(
               children: [
@@ -322,7 +322,7 @@ class _PredictionPageState extends State<PredictionPage> {
             margin: const EdgeInsets.only(top: 10.0),
             color: Colors.white,
             width: 12,
-            height: 50,
+            height: 65,
             padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
             child: Column(
               children: [
@@ -352,7 +352,7 @@ class _PredictionPageState extends State<PredictionPage> {
             margin: const EdgeInsets.only(top: 10.0),
             color: Colors.white,
             width: 12,
-            height: 50,
+            height: 65,
             padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
             child: Column(
               children: [
@@ -382,7 +382,7 @@ class _PredictionPageState extends State<PredictionPage> {
             margin: const EdgeInsets.only(top: 10.0),
             color: Colors.white,
             width: 12,
-            height: 50,
+            height: 65,
             padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
             child: Column(
               children: [
@@ -412,7 +412,7 @@ class _PredictionPageState extends State<PredictionPage> {
             margin: const EdgeInsets.only(top: 10.0),
             color: Colors.white,
             width: 12,
-            height: 50,
+            height: 65,
             padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
             child: Column(
               children: [
@@ -442,7 +442,7 @@ class _PredictionPageState extends State<PredictionPage> {
             margin: const EdgeInsets.only(top: 10.0),
             color: Colors.white,
             width: 12,
-            height: 50,
+            height: 65,
             padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
             child: Column(
               children: [
@@ -472,7 +472,7 @@ class _PredictionPageState extends State<PredictionPage> {
             margin: const EdgeInsets.only(top: 10.0),
             color: Colors.white,
             width: 12,
-            height: 50,
+            height: 65,
             padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
             child: Column(
               children: [
@@ -502,7 +502,7 @@ class _PredictionPageState extends State<PredictionPage> {
             margin: const EdgeInsets.only(top: 10.0),
             color: Colors.white,
             width: 12,
-            height: 50,
+            height: 65,
             padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
             child: Column(
               children: [
@@ -532,7 +532,7 @@ class _PredictionPageState extends State<PredictionPage> {
             margin: const EdgeInsets.only(top: 10.0),
             color: Colors.white,
             width: 12,
-            height: 50,
+            height: 65,
             padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
             child: Column(
               children: [
@@ -562,7 +562,7 @@ class _PredictionPageState extends State<PredictionPage> {
             margin: const EdgeInsets.only(top: 10.0),
             color: Colors.white,
             width: 12,
-            height: 50,
+            height: 65,
             padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
             child: Column(
               children: [
@@ -592,7 +592,7 @@ class _PredictionPageState extends State<PredictionPage> {
             margin: const EdgeInsets.only(top: 10.0),
             color: Colors.white,
             width: 12,
-            height: 50,
+            height: 65,
             padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
             child: Column(
               children: [
@@ -622,7 +622,7 @@ class _PredictionPageState extends State<PredictionPage> {
             margin: const EdgeInsets.only(top: 10.0),
             color: Colors.white,
             width: 12,
-            height: 50,
+            height: 65,
             padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
             child: Column(
               children: [
@@ -652,7 +652,7 @@ class _PredictionPageState extends State<PredictionPage> {
             margin: const EdgeInsets.only(top: 10.0),
             color: Colors.white,
             width: 12,
-            height: 50,
+            height: 65,
             padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
             child: Column(
               children: [
@@ -682,7 +682,7 @@ class _PredictionPageState extends State<PredictionPage> {
             margin: const EdgeInsets.only(top: 10.0),
             color: Colors.white,
             width: 12,
-            height: 50,
+            height: 65,
             padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
             child: Column(
               children: [
@@ -712,7 +712,7 @@ class _PredictionPageState extends State<PredictionPage> {
             margin: const EdgeInsets.only(top: 10.0),
             color: Colors.white,
             width: 12,
-            height: 50,
+            height: 65,
             padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
             child: Column(
               children: [
@@ -742,7 +742,7 @@ class _PredictionPageState extends State<PredictionPage> {
             margin: const EdgeInsets.only(top: 10.0),
             color: Colors.white,
             width: 12,
-            height: 50,
+            height: 65,
             padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
             child: Column(
               children: [
@@ -772,7 +772,7 @@ class _PredictionPageState extends State<PredictionPage> {
             margin: const EdgeInsets.only(top: 10.0),
             color: Colors.white,
             width: 12,
-            height: 50,
+            height: 65,
             padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
             child: Column(
               children: [
@@ -802,7 +802,7 @@ class _PredictionPageState extends State<PredictionPage> {
             margin: const EdgeInsets.only(top: 10.0),
             color: Colors.white,
             width: 12,
-            height: 50,
+            height: 65,
             padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
             child: Column(
               children: [
@@ -832,7 +832,7 @@ class _PredictionPageState extends State<PredictionPage> {
             margin: const EdgeInsets.only(top: 10.0),
             color: Colors.white,
             width: 12,
-            height: 50,
+            height: 65,
             padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
             child: Column(
               children: [
@@ -862,7 +862,7 @@ class _PredictionPageState extends State<PredictionPage> {
             margin: const EdgeInsets.only(top: 10.0),
             color: Colors.white,
             width: 12,
-            height: 50,
+            height: 65,
             padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
             child: Column(
               children: [
@@ -892,7 +892,7 @@ class _PredictionPageState extends State<PredictionPage> {
             margin: const EdgeInsets.only(top: 10.0),
             color: Colors.white,
             width: 12,
-            height: 50,
+            height: 65,
             padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
             child: Column(
               children: [
@@ -922,7 +922,7 @@ class _PredictionPageState extends State<PredictionPage> {
             margin: const EdgeInsets.only(top: 10.0),
             color: Colors.white,
             width: 12,
-            height: 50,
+            height: 65,
             padding: const EdgeInsets.fromLTRB(0, 5, 0, 0),
             child: Column(
               children: [
