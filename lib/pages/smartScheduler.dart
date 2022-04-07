@@ -2668,30 +2668,46 @@ class _settingspage extends State<settingspage> {
                             datasetColorTemp.add(10);
                           }
                         }
-                      }
-                      json.add({
-                        "Time": 12,
-                        "OnOff": datasetOnOff[0],
-                        "Brightness": datasetBrightness[0],
-                        "ColorTemp": datasetColorTemp[0]
-                      });
-                      for (var i = 1; i < 24; i++) {
-                        json.add({
-                          "Time": i,
-                          "OnOff": datasetOnOff[i],
-                          "Brightness": datasetBrightness[i],
-                          "ColorTemp": datasetColorTemp[i]
-                        });
-                      }
-                      print(json);
-                      print(json.last);
-                      print(datasetOnOff);
-                      print(datasetBrightness);
-                      print(datasetColorTemp);
-                      Navigator.push(
+
+                        /*if(json.length<96){
+                          for (var i = 0; i < 24; i++) {
+                            json.add({
+                              "Time": i,
+                              "OnOff": datasetOnOff[i],
+                              "Brightness": datasetBrightness[i],
+                              "ColorTemp": datasetColorTemp[i]
+                            });
+                          }
+                        }else{
+                          json.removeRange(0,24);
+                          for (var i = 0; i < 24; i++) {
+                            json.add({
+                              "Time": i,
+                              "OnOff": datasetOnOff[i],
+                              "Brightness": datasetBrightness[i],
+                              "ColorTemp": datasetColorTemp[i]
+                            });
+                          }
+                        }*/
+
+                        for (var i = 0; i < 24; i++) {
+                          json.add({
+                            "Time": i,
+                            "OnOff": datasetOnOff[i],
+                            "Brightness": datasetBrightness[i],
+                            "ColorTemp": datasetColorTemp[i]
+                          });
+                        }
+                        json.removeRange(0,24);
+
+                        print(json);
+                        print(json.last);
+                        print(json.length);
+                        Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => const Prediction()),
-                      );
+                        );
+                      }
                     }),
                   ),
                 ),
