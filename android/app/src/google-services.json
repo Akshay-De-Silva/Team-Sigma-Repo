@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "425812877689",
+    "project_id": "smart-bulb-app",
+    "storage_bucket": "smart-bulb-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:425812877689:android:e93acad1b0a06034b10fa8",
+        "android_client_info": {
+          "package_name": "com.example.smartbulbfirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "425812877689-6hcdpm90oi3rrff0dr4b2k0jcdet4e4d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzM0rFWnc4zHB4JUOU4ihlrwfOl6o3WFs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "425812877689-6hcdpm90oi3rrff0dr4b2k0jcdet4e4d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
