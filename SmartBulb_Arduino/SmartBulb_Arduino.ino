@@ -197,36 +197,7 @@ void loop()
     analogWrite(ledpinred, 70);
     analogWrite(ledpinblue, 30);
   }
-   if(light=="red5blue5")
-  {
-    analogWrite(ledpinred, 60);
-    analogWrite(ledpinblue, 40);
-  }
-   if(light=="red6blue6")
-  {
-    analogWrite(ledpinred, 50);
-    analogWrite(ledpinblue, 50);
-  }
-   if(light=="red7blue7")
-  {
-    analogWrite(ledpinred, 40);
-    analogWrite(ledpinblue, 60);
-  }
-   if(light=="red8blue8")
-  {
-    analogWrite(ledpinred, 30);
-    analogWrite(ledpinblue, 70);
-  }
-   if(light=="red9blue9")
-  {
-    analogWrite(ledpinred, 10);
-    analogWrite(ledpinblue, 150);
-  }
-   if(light=="red10blue10")
-  {
-    analogWrite(ledpinred, 0);
-    analogWrite(ledpinblue, 255);
-  }
+
   
   
   }
