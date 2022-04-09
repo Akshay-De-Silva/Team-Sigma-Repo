@@ -1,7 +1,7 @@
-import 'package:firebase_core/firebase_core.dart';
+//import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:firebase_database/firebase_database.dart';
+//import 'package:firebase_database/firebase_database.dart';
 import 'package:smartbulbfirebase/dataset.dart';
 
 import 'Prediction.dart';
@@ -114,7 +114,7 @@ class _settingspage extends State<settingspage> {
                         onChanged: ((val) {
                           setState(() {
                             onOff[0] = val;
-                            print(onOff[0]);
+                            // print(onOff[0]);
                           });
                         }),
                       ),
@@ -218,7 +218,7 @@ class _settingspage extends State<settingspage> {
                         onChanged: ((val) {
                           setState(() {
                             onOff[1] = val;
-                            print(onOff[1]);
+                            // print(onOff[1]);
                           });
                         }),
                       ),
@@ -322,7 +322,7 @@ class _settingspage extends State<settingspage> {
                         onChanged: ((val) {
                           setState(() {
                             onOff[2] = val;
-                            print(onOff[2]);
+                            // print(onOff[2]);
                           });
                         }),
                       ),
@@ -426,7 +426,7 @@ class _settingspage extends State<settingspage> {
                         onChanged: ((val) {
                           setState(() {
                             onOff[3] = val;
-                            print(onOff[3]);
+                            // print(onOff[3]);
                           });
                         }),
                       ),
@@ -530,7 +530,7 @@ class _settingspage extends State<settingspage> {
                         onChanged: ((val) {
                           setState(() {
                             onOff[4] = val;
-                            print(onOff[4]);
+                            // print(onOff[4]);
                           });
                         }),
                       ),
@@ -634,7 +634,7 @@ class _settingspage extends State<settingspage> {
                         onChanged: ((val) {
                           setState(() {
                             onOff[5] = val;
-                            print(onOff[5]);
+                            //print(onOff[5]);
                           });
                         }),
                       ),
@@ -738,7 +738,7 @@ class _settingspage extends State<settingspage> {
                         onChanged: ((val) {
                           setState(() {
                             onOff[6] = val;
-                            print(onOff[6]);
+                            //print(onOff[6]);
                           });
                         }),
                       ),
@@ -842,7 +842,7 @@ class _settingspage extends State<settingspage> {
                         onChanged: ((val) {
                           setState(() {
                             onOff[7] = val;
-                            print(onOff[7]);
+                            //print(onOff[7]);
                           });
                         }),
                       ),
@@ -946,7 +946,7 @@ class _settingspage extends State<settingspage> {
                         onChanged: ((val) {
                           setState(() {
                             onOff[8] = val;
-                            print(onOff[8]);
+                            //print(onOff[8]);
                           });
                         }),
                       ),
@@ -1050,7 +1050,7 @@ class _settingspage extends State<settingspage> {
                         onChanged: ((val) {
                           setState(() {
                             onOff[9] = val;
-                            print(onOff[9]);
+                            //print(onOff[9]);
                           });
                         }),
                       ),
@@ -1154,7 +1154,7 @@ class _settingspage extends State<settingspage> {
                         onChanged: ((val) {
                           setState(() {
                             onOff[10] = val;
-                            print(onOff[10]);
+                            //print(onOff[10]);
                           });
                         }),
                       ),
@@ -1258,7 +1258,7 @@ class _settingspage extends State<settingspage> {
                         onChanged: ((val) {
                           setState(() {
                             onOff[11] = val;
-                            print(onOff[11]);
+                            //print(onOff[11]);
                           });
                         }),
                       ),
@@ -1362,7 +1362,7 @@ class _settingspage extends State<settingspage> {
                         onChanged: ((val) {
                           setState(() {
                             onOff[12] = val;
-                            print(onOff[12]);
+                            //print(onOff[12]);
                           });
                         }),
                       ),
@@ -1466,7 +1466,7 @@ class _settingspage extends State<settingspage> {
                         onChanged: ((val) {
                           setState(() {
                             onOff[13] = val;
-                            print(onOff[13]);
+                            //print(onOff[13]);
                           });
                         }),
                       ),
@@ -1570,7 +1570,7 @@ class _settingspage extends State<settingspage> {
                         onChanged: ((val) {
                           setState(() {
                             onOff[14] = val;
-                            print(onOff[14]);
+                            //print(onOff[14]);
                           });
                         }),
                       ),
@@ -1674,7 +1674,7 @@ class _settingspage extends State<settingspage> {
                         onChanged: ((val) {
                           setState(() {
                             onOff[15] = val;
-                            print(onOff[15]);
+                            //print(onOff[15]);
                           });
                         }),
                       ),
@@ -1778,7 +1778,7 @@ class _settingspage extends State<settingspage> {
                         onChanged: ((val) {
                           setState(() {
                             onOff[16] = val;
-                            print(onOff[16]);
+                            //print(onOff[16]);
                           });
                         }),
                       ),
@@ -1882,7 +1882,7 @@ class _settingspage extends State<settingspage> {
                         onChanged: ((val) {
                           setState(() {
                             onOff[17] = val;
-                            print(onOff[17]);
+                            //print(onOff[17]);
                           });
                         }),
                       ),
@@ -1986,7 +1986,7 @@ class _settingspage extends State<settingspage> {
                         onChanged: ((val) {
                           setState(() {
                             onOff[18] = val;
-                            print(onOff[18]);
+                            //print(onOff[18]);
                           });
                         }),
                       ),
@@ -2090,7 +2090,7 @@ class _settingspage extends State<settingspage> {
                         onChanged: ((val) {
                           setState(() {
                             onOff[19] = val;
-                            print(onOff[19]);
+                            //print(onOff[19]);
                           });
                         }),
                       ),
@@ -2194,7 +2194,7 @@ class _settingspage extends State<settingspage> {
                         onChanged: ((val) {
                           setState(() {
                             onOff[20] = val;
-                            print(onOff[20]);
+                            //print(onOff[20]);
                           });
                         }),
                       ),
@@ -2298,7 +2298,7 @@ class _settingspage extends State<settingspage> {
                         onChanged: ((val) {
                           setState(() {
                             onOff[21] = val;
-                            print(onOff[21]);
+                            //print(onOff[21]);
                           });
                         }),
                       ),
@@ -2402,7 +2402,7 @@ class _settingspage extends State<settingspage> {
                         onChanged: ((val) {
                           setState(() {
                             onOff[22] = val;
-                            print(onOff[22]);
+                            //print(onOff[22]);
                           });
                         }),
                       ),
@@ -2506,7 +2506,7 @@ class _settingspage extends State<settingspage> {
                         onChanged: ((val) {
                           setState(() {
                             onOff[23] = val;
-                            print(onOff[23]);
+                            //print(onOff[23]);
                           });
                         }),
                       ),
@@ -2700,9 +2700,9 @@ class _settingspage extends State<settingspage> {
                         }
                         json.removeRange(0,24);
 
-                        print(json);
-                        print(json.last);
-                        print(json.length);
+                        //print(json);
+                        //print(json.last);
+                        //print(json.length);
                         Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => const Prediction()),

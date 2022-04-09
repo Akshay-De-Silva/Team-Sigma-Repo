@@ -196,8 +196,8 @@ class _PredictionPageState extends State<PredictionPage> {
                     String body = jsonEncode(json);
                     var id = await createAlbum(body);
                     f = jsonDecode(id.body);
-                    print(f.toString());
-                    print(f["0"]);
+                    // print(f.toString());
+                    // print(f["0"]);
                     //data0=f["0"].toString();
                     setState(() {
                       data0 = recomendation(f["0"].toString());

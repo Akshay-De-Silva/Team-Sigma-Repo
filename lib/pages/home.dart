@@ -1,4 +1,4 @@
-import 'package:firebase_core/firebase_core.dart';
+//import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
@@ -115,7 +115,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                       )),
             Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                   color: Colors.white70,
                   borderRadius: BorderRadius.all(Radius.circular(20))
               ),
