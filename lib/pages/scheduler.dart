@@ -1,9 +1,9 @@
 import 'dart:async';
-import 'package:firebase_core/firebase_core.dart';
+//import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
-import 'package:toggle_switch/toggle_switch.dart';
+//import 'package:toggle_switch/toggle_switch.dart';
 
 class SchedulerPage extends StatelessWidget {
   @override
@@ -36,10 +36,10 @@ class _schedulerpage extends State<schedulerpage> {
   int tempValue = 50;
   @override
   Widget build(BuildContext context) {
-    final hours = time.hour.toString().padLeft(2, '0');
-    final minutes = time.minute.toString().padLeft(2, '0');
-    DateTime now = DateTime.now();
-    var rtime = now.hour;
+    //final hours = time.hour.toString().padLeft(2, '0');
+    //final minutes = time.minute.toString().padLeft(2, '0');
+    //DateTime now = DateTime.now();
+    //var rtime = now.hour;
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -284,10 +284,10 @@ class _schedulerpage extends State<schedulerpage> {
                       onChanged: (val) {
                         setState(() {
                           select = val;
-                          print(select);
+                          // print(select);
                         });
                         if (select == true) {
-                          var x = time.hour - rtime;
+                          //var x = time.hour - rtime;
                           const oneSec = Duration(seconds: 5);
                           _timer = Timer.periodic(
                             oneSec,
