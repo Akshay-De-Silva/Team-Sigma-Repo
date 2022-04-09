@@ -27,8 +27,8 @@ class settingspage extends StatefulWidget {
 
 class _settingspage extends State<settingspage> {
   var onOff = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,];
-  var brightness = ['0', '0', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10'];
-  var colorTemp = ['0', '0', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10'];
+  var brightness = ['10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10'];
+  var colorTemp = ['10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10'];
   bool isSwitched = false;
   var datasetOnOff = <int>[];
   var datasetBrightness = <int>[];
