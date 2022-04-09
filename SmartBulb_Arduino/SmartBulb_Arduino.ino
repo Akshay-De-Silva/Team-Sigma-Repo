@@ -3,7 +3,7 @@
 
 //For this we need to downlode the esp8266 2.3.0 library
 
-int ledpin = D4; //defining the OUTPUT pin for LED (D4)
+int ledpinwhite = D4; //defining the OUTPUT pin for LED (D4)
 int ledpinred = D5;//defining the OUTPUT pin for LED (D5)
 int ledpingreen = D6;//defining the OUTPUT pin for LED (D6)
 int ledpinblue  = D7;//defining the OUTPUT pin for LED (D7)
@@ -19,7 +19,7 @@ int ledpinyellow = D8;//defining the OUTPUT pin for LED (D8)
 
 //Testing phase 02 Git
 void setup() {
-  pinMode(ledpin,OUTPUT); // Defining Pinmode for ledpin(D4)
+  pinMode(ledpinwhite,OUTPUT); // Defining Pinmode for ledpin(D4)
   pinMode(ledpinyellow,OUTPUT);// Defining Pinmode for ledpinyellow(D8)
   pinMode(ledpinred,OUTPUT);// Defining Pinmode for ledpinred(D5)
   pinMode(ledpingreen,OUTPUT);// Defining Pinmode for ledpingreen(D6)
@@ -55,15 +55,15 @@ void loop()
    Serial.println(light);
    if (light == "ON")
    {
-     digitalWrite(ledpin, HIGH);// Switching ON the main led bulb
+     digitalWrite(ledpinwhite, HIGH);// Switching ON the main led bulb
    
    }
 
    if (light == "OFF")
   {
     //Switching OFF the main and the other led bulbs
-    digitalWrite(ledpin, LOW);
-    analogWrite(ledpin, 0);
+    digitalWrite(ledpinwhite, LOW);
+    analogWrite(ledpinwhite, 0);
     digitalWrite(ledpinred, LOW);
     digitalWrite(ledpingreen, LOW);
     digitalWrite(ledpinblue, LOW);
@@ -76,58 +76,58 @@ void loop()
 
  if(light=="0")
   {
-    analogWrite(ledpin,0);
+    analogWrite(ledpinwhite,0);
  
    }
    
   if(light=="10")
   {
-    analogWrite(ledpin,10);
+    analogWrite(ledpinwhite,10);
  
    }
   if(light=="20")
   {
-    analogWrite(ledpin,20);
+    analogWrite(ledpinwhite,20);
  
    }
   if(light=="30")
   {
-    analogWrite(ledpin,30);
+    analogWrite(ledpinwhite,30);
  
    }
   if(light=="40")
   {
-    analogWrite(ledpin,40);
+    analogWrite(ledpinwhite,40);
  
    }
   if(light=="50")
   {
-    analogWrite(ledpin,50);
+    analogWrite(ledpinwhite,50);
  
    }
   if(light=="60")
   {
-    analogWrite(ledpin,60);
+    analogWrite(ledpinwhite,60);
  
    }
   if(light=="70")
   {
-    analogWrite(ledpin,70);
+    analogWrite(ledpinwhite,70);
  
    }
   if(light=="80")
   {
-    analogWrite(ledpin,80);
+    analogWrite(ledpinwhite,80);
  
    }
   if(light=="90")
   {
-    analogWrite(ledpin,150);
+    analogWrite(ledpinwhite,150);
  
    }
   if(light=="100")
   {
-    analogWrite(ledpin,255);
+    analogWrite(ledpinwhite,255);
  
    }
 
@@ -138,7 +138,7 @@ void loop()
 
      if (light == "red")
   {
-    digitalWrite(ledpin, LOW);
+    digitalWrite(ledpinwhite, LOW);
     digitalWrite(ledpingreen, LOW);
     digitalWrite(ledpinblue, LOW);
     digitalWrite(ledpinyellow, LOW);
@@ -147,7 +147,7 @@ void loop()
   }
   if (light == "green")
   {
-    digitalWrite(ledpin, LOW);
+    digitalWrite(ledpinwhite, LOW);
     digitalWrite(ledpinred, LOW);
     digitalWrite(ledpinblue, LOW);
     digitalWrite(ledpinyellow, LOW);
@@ -157,7 +157,7 @@ void loop()
   if (light == "blue")
   {
 
-    digitalWrite(ledpin, LOW);
+    digitalWrite(ledpinwhite, LOW);
     digitalWrite(ledpinred, LOW);
     digitalWrite(ledpingreen, LOW);
     digitalWrite(ledpinyellow, LOW);
@@ -168,8 +168,8 @@ void loop()
   {
     // analogWrite(ledpinred,255);
     // analogWrite(ledpinred,255);
-    analogWrite(ledpin, 0);
-    digitalWrite(ledpin, LOW);
+    analogWrite(ledpinwhite, 0);
+    digitalWrite(ledpinwhite, LOW);
     digitalWrite(ledpinred, LOW);
     digitalWrite(ledpingreen, LOW);
     digitalWrite(ledpinblue, LOW);
@@ -197,7 +197,36 @@ void loop()
     analogWrite(ledpinred, 70);
     analogWrite(ledpinblue, 30);
   }
-
+   if(light=="red5blue5")
+  {
+    analogWrite(ledpinred, 60);
+    analogWrite(ledpinblue, 40);
+  }
+   if(light=="red6blue6")
+  {
+    analogWrite(ledpinred, 50);
+    analogWrite(ledpinblue, 50);
+  }
+   if(light=="red7blue7")
+  {
+    analogWrite(ledpinred, 40);
+    analogWrite(ledpinblue, 60);
+  }
+   if(light=="red8blue8")
+  {
+    analogWrite(ledpinred, 30);
+    analogWrite(ledpinblue, 70);
+  }
+   if(light=="red9blue9")
+  {
+    analogWrite(ledpinred, 10);
+    analogWrite(ledpinblue, 150);
+  }
+   if(light=="red10blue10")
+  {
+    analogWrite(ledpinred, 0);
+    analogWrite(ledpinblue, 255);
+  }
   
   
   }
