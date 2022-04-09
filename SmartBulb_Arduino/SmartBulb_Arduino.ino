@@ -167,6 +167,13 @@ void loop()
   if (light == "yellow")
   {
     // analogWrite(ledpinred,255);
+    // analogWrite(ledpinred,255);
+    analogWrite(ledpin, 0);
+    digitalWrite(ledpin, LOW);
+    digitalWrite(ledpinred, LOW);
+    digitalWrite(ledpingreen, LOW);
+    digitalWrite(ledpinblue, LOW);
+    digitalWrite(ledpinyellow, HIGH);
 
   }
     // Creating the light temperature
