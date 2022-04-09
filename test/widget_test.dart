@@ -28,5 +28,6 @@ void main() {
     expect(find.text('1'), findsOneWidget);
 
     //comment to test CI/CD
+    //comment to test CI/CD case: No error
   });
 }
