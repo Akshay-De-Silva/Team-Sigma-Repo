@@ -42,9 +42,6 @@ void setup() {
   Firebase.begin(FIREBASE_HOST, FIREBASE_AUTH);
 }
 
-
-
-
 //Testing
 String light = "";// assigning a String Variable named as light 
 void loop()
@@ -54,7 +51,6 @@ void loop()
    if (light == "ON")
    {
      digitalWrite(ledpinwhite, HIGH);// Switching ON the main led bulb
-   
    }
 
    if (light == "OFF")
@@ -66,8 +62,6 @@ void loop()
     digitalWrite(ledpingreen, LOW);
     digitalWrite(ledpinblue, LOW);
     digitalWrite(ledpinyellow, LOW);
-    
-
   }
 
   //Here we're controlling the voltage of the bulb in order to controll the brightness/.
@@ -75,7 +69,6 @@ void loop()
  if(light=="0")
   {
     analogWrite(ledpinwhite,0);
- 
    }
    
   if(light=="10")
@@ -121,12 +114,11 @@ void loop()
   if(light=="90")
   {
     analogWrite(ledpinwhite,150);
- 
+     
    }
   if(light=="100")
   {
     analogWrite(ledpinwhite,255);
- 
    }
 
    // End of controlling the voltage
@@ -136,6 +128,7 @@ void loop()
 
      if (light == "red")
   {
+    analogWrite(ledpinwhite, 0);
     digitalWrite(ledpinwhite, LOW);
     digitalWrite(ledpingreen, LOW);
     digitalWrite(ledpinblue, LOW);
@@ -145,6 +138,7 @@ void loop()
   }
   if (light == "green")
   {
+    analogWrite(ledpinwhite, 0);
     digitalWrite(ledpinwhite, LOW);
     digitalWrite(ledpinred, LOW);
     digitalWrite(ledpinblue, LOW);
@@ -154,7 +148,7 @@ void loop()
   }
   if (light == "blue")
   {
-
+    analogWrite(ledpinwhite, 0);
     digitalWrite(ledpinwhite, LOW);
     digitalWrite(ledpinred, LOW);
     digitalWrite(ledpingreen, LOW);
@@ -164,8 +158,6 @@ void loop()
   }
   if (light == "yellow")
   {
-    // analogWrite(ledpinred,255);
-    // analogWrite(ledpinred,255);
     analogWrite(ledpinwhite, 0);
     digitalWrite(ledpinwhite, LOW);
     digitalWrite(ledpinred, LOW);
@@ -225,6 +217,5 @@ void loop()
     analogWrite(ledpinred, 0);
     analogWrite(ledpinblue, 255);
   }
-  
-  
+   
   }
